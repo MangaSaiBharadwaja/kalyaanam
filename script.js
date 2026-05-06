@@ -3,20 +3,199 @@
    Animations, Countdown, Interactions
    ========================================== */
 
+// ===== TRANSLATIONS =====
+const translations = {
+    en: {
+        ganesh_prayer: '॥ Sri Ganeshaya Namah ॥',
+        ramanuja_prayer: '॥ Sri Hanumate Namah ॥',
+        tagline: 'Are getting married!',
+        couple_title: 'The Couple',
+        couple_subtitle: 'Two souls, one journey',
+        groom_role: 'The Groom',
+        groom_name: 'Venkata Abhilash Kumar',
+        son_of: 'Son of',
+        bride_role: 'The Bride',
+        bride_name: 'Navya Sri Lalitha',
+        daughter_of: 'Daughter of',
+        details_title: 'Wedding Details',
+        details_subtitle: 'Save the auspicious date',
+        detail_date_title: 'Wedding Date',
+        detail_date_text: 'November 20, 2026',
+        detail_date_sub: 'Friday (Sukravaaram)',
+        detail_time_title: 'Muhurtham Time',
+        detail_time_text: '9:10 AM',
+        detail_time_sub: 'Kaartheeka Maasam · Ekaadasi',
+        detail_venue_title: 'Venue',
+        detail_venue_text: 'Sri Vaasavi Kanyaka Parameswari',
+        detail_venue_sub: 'Kalyana Mandapam, Gudur',
+        event1_name: 'Wedding Celebrations Begin',
+        event2_name: 'Muhurtham & Main Ceremony',
+        rituals_title: 'Sacred Rituals',
+        rituals_subtitle: 'The divine ceremonies of our wedding',
+        venue_title: 'Wedding Venue',
+        venue_subtitle: 'We would be honoured by your presence',
+        venue_name: 'Sri Vaasavi Kanyaka Parameswari<br>Kalyana Mandapam',
+        venue_address: 'Gudur, Andhra Pradesh',
+        venue_feat1: '🪔 Sacred Fire Altar',
+        venue_feat2: '🌺 Flower Decorated',
+        venue_feat3: '🎵 Nadaswaram',
+        rsvp_title: 'RSVP',
+        rsvp_subtitle: 'Kindly honour us with your gracious presence',
+        rsvp_message: 'Your presence is the greatest blessing for our new beginning. Please grace us with your attendance and blessings.',
+        rsvp_contact_label: 'Kaarya Nirvahakulu (Grand Parents)',
+        blessing_translation: 'May all beings be happy',
+        visitor_label: 'Blessings Received',
+        visitor_sublabel: 'People have visited & blessed this invitation',
+        footer_text: 'With Love & Blessings 🙏',
+        nav_home: 'Home', nav_couple: 'Couple', nav_details: 'Details',
+        nav_rituals: 'Rituals', nav_venue: 'Venue', nav_rsvp: 'RSVP'
+    },
+    te: {
+        ganesh_prayer: '॥ శ్రీ గణేశాయ నమః ॥',
+        ramanuja_prayer: '॥ శ్రీమతే రామానుజాయ నమః ॥',
+        tagline: 'వివాహం చేసుకుంటున్నారు!',
+        couple_title: 'వధూవరులు',
+        couple_subtitle: 'రెండు ఆత్మలు, ఒక ప్రయాణం',
+        groom_role: 'వరుడు',
+        groom_name: 'వెంకట అభిలాష్ కుమార్',
+        son_of: 'తండ్రి',
+        bride_role: 'వధువు',
+        bride_name: 'నవ్య శ్రీ లలిత',
+        daughter_of: 'తండ్రి',
+        details_title: 'వివాహ వివరాలు',
+        details_subtitle: 'శుభ ముహూర్తం గుర్తుంచుకోండి',
+        detail_date_title: 'వివాహ తేదీ',
+        detail_date_text: 'నవంబర్ 20, 2026',
+        detail_date_sub: 'శుక్రవారం',
+        detail_time_title: 'ముహూర్తం సమయం',
+        detail_time_text: 'ఉదయం 9:10',
+        detail_time_sub: 'కార్తీక మాసం · ఏకాదశి',
+        detail_venue_title: 'వేదిక',
+        detail_venue_text: 'శ్రీ వాసవి కన్యకా పరమేశ్వరి',
+        detail_venue_sub: 'కళ్యాణ మండపం, గూడూరు',
+        event1_name: 'వివాహ వేడుకలు ప్రారంభం',
+        event2_name: 'ముహూర్తం & ప్రధాన వేడుక',
+        rituals_title: 'పవిత్ర ఆచారాలు',
+        rituals_subtitle: 'మా వివాహంలోని దివ్య కార్యక్రమాలు',
+        venue_title: 'వివాహ మండపం',
+        venue_subtitle: 'మీ దివ్య సమక్షంతో మమ్మల్ని ఆశీర్వదించండి',
+        venue_name: 'శ్రీ వాసవి కన్యకా పరమేశ్వరి<br>కళ్యాణ మండపం',
+        venue_address: 'గూడూరు, ఆంధ్ర ప్రదేశ్',
+        venue_feat1: '🪔 పవిత్ర అగ్ని వేదిక',
+        venue_feat2: '🌺 పుష్ప అలంకారం',
+        venue_feat3: '🎵 నాదస్వరం',
+        rsvp_title: 'ఆహ్వానం',
+        rsvp_subtitle: 'మీ వేంచేపుతో మమ్మల్ని ధన్యులను చేయండి',
+        rsvp_message: 'మీ ఆశీర్వాదం మా కొత్త జీవితానికి గొప్ప వరం. దయచేసి మీ హాజరుతో మమ్మల్ని ఆశీర్వదించండి.',
+        rsvp_contact_label: 'కార్య నిర్వాహకులు (తాతయ్య & నానమ్మ)',
+        blessing_translation: 'సర్వే జనాః సుఖినో భవంతు',
+        visitor_label: 'ఆశీర్వాదాలు అందాయి',
+        visitor_sublabel: 'మంది ఈ ఆహ్వాన పత్రికను చూసి ఆశీర్వదించారు',
+        footer_text: 'ప్రేమతో & ఆశీర్వాదాలతో 🙏',
+        nav_home: 'హోమ్', nav_couple: 'వధూవరులు', nav_details: 'వివరాలు',
+        nav_rituals: 'ఆచారాలు', nav_venue: 'మండపం', nav_rsvp: 'ఆహ్వానం'
+    },
+    sa: {
+        ganesh_prayer: '॥ श्री गणेशाय नमः ॥',
+        ramanuja_prayer: '॥ श्रीमते रामानुजाय नमः ॥',
+        tagline: 'विवाहं कुर्वन्ति!',
+        couple_title: 'वधूवरौ',
+        couple_subtitle: 'द्वे आत्मानौ, एकं पथम्',
+        groom_role: 'वरः',
+        groom_name: 'वेङ्कट अभिलाष कुमारः',
+        son_of: 'पितृ',
+        bride_role: 'वधूः',
+        bride_name: 'नव्या श्री ललिता',
+        daughter_of: 'पितृ',
+        details_title: 'विवाहविवरणम्',
+        details_subtitle: 'शुभमुहूर्तं स्मरत',
+        detail_date_title: 'विवाहदिनम्',
+        detail_date_text: 'नवम्बर् 20, 2026',
+        detail_date_sub: 'शुक्रवासरः',
+        detail_time_title: 'मुहूर्तसमयः',
+        detail_time_text: 'प्रातः 9:10',
+        detail_time_sub: 'कार्तिकमासः · एकादशी',
+        detail_venue_title: 'स्थानम्',
+        detail_venue_text: 'श्री वासवी कन्यका परमेश्वरी',
+        detail_venue_sub: 'कल्याणमण्डपम्, गूडूरु',
+        event1_name: 'विवाहोत्सवारम्भः',
+        event2_name: 'मुहूर्तम् एवं प्रधानविधिः',
+        rituals_title: 'पवित्रसंस्काराः',
+        rituals_subtitle: 'अस्माकं विवाहस्य दिव्यक्रियाः',
+        venue_title: 'विवाहमण्डपम्',
+        venue_subtitle: 'भवतां दिव्यसान्निध्येन अस्मान् आशीर्वदन्तु',
+        venue_name: 'श्री वासवी कन्यका परमेश्वरी<br>कल्याणमण्डपम्',
+        venue_address: 'गूडूरु, आन्ध्रप्रदेशः',
+        venue_feat1: '🪔 पवित्राग्निवेदिका',
+        venue_feat2: '🌺 पुष्पालङ्कारः',
+        venue_feat3: '🎵 नादस्वरम्',
+        rsvp_title: 'आमन्त्रणम्',
+        rsvp_subtitle: 'भवतां सम्मानितसान्निध्यम् अस्मान् धन्यान् करोतु',
+        rsvp_message: 'भवतां आशीर्वादः अस्माकं नवजीवनस्य महद्वरम्। कृपया भवतां उपस्थित्या अस्मान् आशीर्वदन्तु।',
+        rsvp_contact_label: 'कार्यनिर्वाहकौ (पितामहौ)',
+        blessing_translation: 'सर्वे जनाः सुखिनो भवन्तु',
+        visitor_label: 'आशीर्वादाः प्राप्ताः',
+        visitor_sublabel: 'जनाः एतद् आमन्त्रणपत्रिकां दृष्ट्वा आशीर्वदन्',
+        footer_text: 'प्रेम्णा आशीर्वादैश्च 🙏',
+        nav_home: 'गृहम्', nav_couple: 'वधूवरौ', nav_details: 'विवरणम्',
+        nav_rituals: 'संस्काराः', nav_venue: 'मण्डपम्', nav_rsvp: 'आमन्त्रणम्'
+    }
+};
+
+let currentLang = 'en';
+
+function selectLanguage(lang) {
+    currentLang = lang;
+    applyTranslations(lang);
+    const overlay = document.getElementById('langDialogOverlay');
+    overlay.classList.remove('visible');
+    overlay.classList.add('hidden');
+}
+
+function applyTranslations(lang) {
+    const t = translations[lang];
+    if (!t) return;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key]) {
+            el.innerHTML = t[key];
+        }
+    });
+}
+
+// ===== MAP REVEAL =====
+function revealMap() {
+    const overlay = document.getElementById('mapOverlay');
+    const iframe = document.getElementById('venueMapFrame');
+    overlay.classList.add('hidden');
+    iframe.style.opacity = '1';
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // ===== PRELOADER =====
     const preloader = document.getElementById('preloader');
+    const langOverlay = document.getElementById('langDialogOverlay');
+
+    function showLanguageDialog() {
+        // Always show language dialog on every visit/refresh
+        setTimeout(() => {
+            langOverlay.classList.add('visible');
+        }, 300);
+    }
+
     window.addEventListener('load', () => {
         setTimeout(() => {
             preloader.classList.add('hidden');
-        }, 2000);
+            showLanguageDialog();
+        }, 2500);
     });
 
-    // Fallback: hide preloader after 4 seconds regardless
+    // Fallback: hide preloader after 5 seconds regardless
     setTimeout(() => {
         preloader.classList.add('hidden');
-    }, 4000);
+        showLanguageDialog();
+    }, 5000);
 
     // ===== NAVIGATION =====
     const nav = document.getElementById('mainNav');
@@ -156,14 +335,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ===== PARALLAX EFFECT FOR HERO =====
+    // Gentle parallax without fading - keeps content visible
     const hero = document.querySelector('.hero');
     window.addEventListener('scroll', () => {
         const scrolled = window.scrollY;
         if (scrolled < window.innerHeight) {
             const heroContent = document.querySelector('.hero-content');
             if (heroContent) {
-                heroContent.style.transform = `translateY(${scrolled * 0.15}px)`;
-                heroContent.style.opacity = 1 - (scrolled / (window.innerHeight * 0.8));
+                heroContent.style.transform = `translateY(${scrolled * 0.08}px)`;
+                // No opacity change - content stays visible while scrolling
             }
         }
     });
@@ -188,13 +368,37 @@ document.addEventListener('DOMContentLoaded', () => {
         ritualObserver.observe(item);
     });
 
-    // ===== AUDIO TOGGLE (BELL SOUND PLACEHOLDER) =====
+    // ===== BACKGROUND MUSIC (Mangalam) =====
     const audioToggle = document.getElementById('audioToggle');
-    let bellActive = false;
+    const bgMusic = new Audio('mangalam.mp3');
+    bgMusic.loop = true;
+    bgMusic.volume = 0.4;
+    let musicPlaying = false;
+
+    function startMusic() {
+        bgMusic.play().then(() => {
+            musicPlaying = true;
+            audioToggle.textContent = '🔊';
+        }).catch(() => {
+            // Autoplay blocked - user will click toggle
+        });
+    }
+
+    // Try to auto-play after user's first interaction (language selection)
+    const origSelectLanguage = window.selectLanguage;
+    window.selectLanguage = function(lang) {
+        origSelectLanguage(lang);
+        if (!musicPlaying) startMusic();
+    };
 
     audioToggle.addEventListener('click', () => {
-        bellActive = !bellActive;
-        audioToggle.textContent = bellActive ? '🔕' : '🔔';
+        if (musicPlaying) {
+            bgMusic.pause();
+            musicPlaying = false;
+            audioToggle.textContent = '🔇';
+        } else {
+            startMusic();
+        }
         audioToggle.style.transform = 'scale(1.2)';
         setTimeout(() => {
             audioToggle.style.transform = 'scale(1)';
@@ -250,5 +454,95 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.animationPlayState = 'running';
         }
     });
+
+    // ===== VISITOR COUNTER (Unique IP-based) =====
+    function initVisitorCounter() {
+        // Fetch visitor's IP and track unique visits
+        fetch('https://api.ipify.org?format=json')
+            .then(res => res.json())
+            .then(data => {
+                const ip = data.ip;
+                const visitorsJson = localStorage.getItem('weddingVisitors') || '{}';
+                const visitors = JSON.parse(visitorsJson);
+
+                if (!visitors[ip]) {
+                    visitors[ip] = Date.now();
+                    localStorage.setItem('weddingVisitors', JSON.stringify(visitors));
+                }
+
+                const uniqueCount = Object.keys(visitors).length;
+                const displayCount = uniqueCount + 1247;
+                updateVisitorDisplay(displayCount);
+            })
+            .catch(() => {
+                // Fallback if IP fetch fails - use session-based counting
+                let count = parseInt(localStorage.getItem('weddingVisitorCount') || '0', 10);
+                const sessionKey = 'weddingVisited_' + new Date().toDateString();
+                if (!sessionStorage.getItem(sessionKey)) {
+                    count += 1;
+                    localStorage.setItem('weddingVisitorCount', count.toString());
+                    sessionStorage.setItem(sessionKey, 'true');
+                }
+                const displayCount = count + 1247;
+                updateVisitorDisplay(displayCount);
+            });
+    }
+
+    function updateVisitorDisplay(count) {
+        const digits = document.querySelectorAll('.visitor-digit');
+        const countStr = String(count).padStart(4, '0');
+        digits.forEach((digit, i) => {
+            const newVal = countStr[i];
+            if (digit.textContent !== newVal) {
+                digit.classList.add('flip');
+                setTimeout(() => {
+                    digit.textContent = newVal;
+                    digit.classList.remove('flip');
+                }, 300);
+            }
+        });
+    }
+
+    // Animate counter on scroll into view
+    const visitorCounter = document.getElementById('visitorCounter');
+    if (visitorCounter) {
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    initVisitorCounter();
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        counterObserver.observe(visitorCounter);
+    }
+
+    // ===== MANDAPAM SCENE SCROLL ANIMATION =====
+    const mandapamScene = document.getElementById('mandapamScene');
+    if (mandapamScene) {
+        const mandapamObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    mandapamScene.classList.add('revealed');
+                    mandapamObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+        mandapamObserver.observe(mandapamScene);
+    }
+
+    // ===== VENUE CARD 3D TILT EFFECT =====
+    const venueCard = document.getElementById('venueCard');
+    if (venueCard) {
+        venueCard.addEventListener('mousemove', (e) => {
+            const rect = venueCard.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+            venueCard.style.transform = `translateY(-8px) rotateX(${y * -5}deg) rotateY(${x * 5}deg)`;
+        });
+        venueCard.addEventListener('mouseleave', () => {
+            venueCard.style.transform = 'translateY(0) rotateX(0) rotateY(0)';
+        });
+    }
 
 });

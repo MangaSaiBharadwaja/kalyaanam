@@ -18,19 +18,43 @@
     <!-- ===== PRELOADER ===== -->
     <div class="preloader" id="preloader">
         <div class="preloader-inner">
-            <svg class="kalash-icon" viewBox="0 0 100 120" width="80" height="96">
-                <ellipse cx="50" cy="108" rx="22" ry="8" fill="#B8860B"/>
-                <path d="M28 108 Q25 80 30 60 Q35 45 50 40 Q65 45 70 60 Q75 80 72 108 Z" fill="#D4AF37" stroke="#8B6914" stroke-width="1.5"/>
-                <ellipse cx="50" cy="40" rx="20" ry="5" fill="#B8860B"/>
-                <circle cx="50" cy="30" r="8" fill="#228B22"/>
-                <path d="M50 22 Q55 10 50 2 Q45 10 50 22" fill="#006400"/>
-                <path d="M50 22 Q60 15 65 5" stroke="#006400" fill="none" stroke-width="2"/>
-                <path d="M50 22 Q40 15 35 5" stroke="#006400" fill="none" stroke-width="2"/>
-                <ellipse cx="50" cy="30" rx="4" ry="6" fill="#90EE90" opacity="0.5"/>
-            </svg>
+            <div class="kalash-glow"></div>
+            <img class="kalash-icon" src="images/preLoader.png" alt="Ganesh" width="140" height="140">
+            <div class="preloader-particles">
+                <span class="particle"></span><span class="particle"></span><span class="particle"></span>
+                <span class="particle"></span><span class="particle"></span><span class="particle"></span>
+            </div>
             <p class="preloader-text">॥ శుభం భవతు ॥</p>
             <div class="preloader-dots">
                 <span></span><span></span><span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== LANGUAGE SELECTION DIALOG ===== -->
+    <div class="lang-dialog-overlay" id="langDialogOverlay">
+        <div class="lang-dialog">
+            <div class="lang-dialog-kalash">
+                <img src="images/preLoader.png" alt="Ganesh" width="60" height="60" style="border-radius:50%;">
+            </div>
+            <h2 class="lang-dialog-title">🙏 Welcome / స్వాగతం / स्वागतम् </h2>
+            <p class="lang-dialog-subtitle">Please select your preferred language</p>
+            <div class="lang-options">
+                <button class="lang-btn" data-lang="sa" onclick="selectLanguage('sa')">
+                    <span class="lang-icon">🕉</span>
+                    <span class="lang-name">संस्कृतम्</span>
+                    <span class="lang-label">Sanskrit</span>
+                </button>
+                <button class="lang-btn" data-lang="te" onclick="selectLanguage('te')">
+                    <span class="lang-icon">ఓం</span>
+                    <span class="lang-name">తెలుగు</span>
+                    <span class="lang-label">Telugu</span>
+                </button>
+                <button class="lang-btn" data-lang="en" onclick="selectLanguage('en')">
+                    <span class="lang-icon">OM</span>
+                    <span class="lang-name">English</span>
+                    <span class="lang-label">English</span>
+                </button>
             </div>
         </div>
     </div>
@@ -43,12 +67,12 @@
                 <span></span><span></span><span></span>
             </button>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#couple">Couple</a></li>
-                <li><a href="#details">Details</a></li>
-                <li><a href="#rituals">Rituals</a></li>
-                <li><a href="#venue">Venue</a></li>
-                <li><a href="#rsvp">RSVP</a></li>
+                <li><a href="#home" data-i18n="nav_home">Home</a></li>
+                <li><a href="#couple" data-i18n="nav_couple">Couple</a></li>
+                <li><a href="#details" data-i18n="nav_details">Details</a></li>
+                <li><a href="#rituals" data-i18n="nav_rituals">Rituals</a></li>
+                <li><a href="#venue" data-i18n="nav_venue">Venue</a></li>
+                <li><a href="#rsvp" data-i18n="nav_rsvp">RSVP</a></li>
             </ul>
         </div>
     </nav>
@@ -100,8 +124,8 @@
                 </svg>
             </div>
 
-            <p class="hero-telugu">॥ శ్రీ గణేశాయ నమః ॥</p>
-            <p class="hero-subtitle-sanskrit">॥ శ్రీమతే రామానుజాయ నమః ॥</p>
+            <p class="hero-telugu" data-i18n="ganesh_prayer">॥ ఓం శ్రీ గణేశాయ నమః ॥</p>
+            <p class="hero-subtitle-sanskrit" data-i18n="ramanuja_prayer">॥ ఓం శ్రీ హనుమతే నమః ॥</p>
 
             <div class="hero-om">🕉</div>
 
@@ -111,7 +135,7 @@
                 <span class="bride-name">Navya Sri Lalitha</span>
             </h1>
 
-            <p class="hero-tagline">Are getting married!</p>
+            <p class="hero-tagline" data-i18n="tagline">Are getting married!</p>
 
             <div class="hero-image-frame">
                 <div class="frame-border">
@@ -186,8 +210,8 @@
                         <ellipse cx="71" cy="71" rx="6" ry="12" fill="#D4AF37" opacity="0.4" transform="rotate(45,71,71)"/>
                     </svg>
                 </div>
-                <h2 class="section-title">The Couple</h2>
-                <p class="section-subtitle">Two souls, one journey</p>
+                <h2 class="section-title" data-i18n="couple_title">The Couple</h2>
+                <p class="section-subtitle" data-i18n="couple_subtitle">Two souls, one journey</p>
             </div>
 
             <div class="couple-grid">
@@ -195,11 +219,11 @@
                 <div class="couple-card reveal-left">
                     <div class="coconut-decor">🥥</div>
                     <div class="couple-card-header">
-                        <h3 class="couple-role">The Groom</h3>
+                        <h3 class="couple-role" data-i18n="groom_role">The Groom</h3>
                     </div>
-                    <h3 class="couple-name">Venkata Abhilash Kumar</h3>
+                    <h3 class="couple-name" data-i18n="groom_name">Venkata Abhilash Kumar</h3>
                     <div class="parents-info">
-                        <p class="parents-label">Son of</p>
+                        <p class="parents-label" data-i18n="son_of">Son of</p>
                         <p class="parent-name">Sri Venkata Sarath Kumar</p>
                         <p class="parent-connector">&</p>
                         <p class="parent-name">Smt. Swarna Lakshmi</p>
@@ -225,11 +249,11 @@
                 <div class="couple-card reveal-right">
                     <div class="coconut-decor">🥥</div>
                     <div class="couple-card-header">
-                        <h3 class="couple-role">The Bride</h3>
+                        <h3 class="couple-role" data-i18n="bride_role">The Bride</h3>
                     </div>
-                    <h3 class="couple-name">Navya Sri Lalitha</h3>
+                    <h3 class="couple-name" data-i18n="bride_name">Navya Sri Lalitha</h3>
                     <div class="parents-info">
-                        <p class="parents-label">Daughter of</p>
+                        <p class="parents-label" data-i18n="daughter_of">Daughter of</p>
                         <p class="parent-name">Dr. Sushruth Kumar</p>
                         <p class="parent-connector">&</p>
                         <p class="parent-name">Smt. SriDevi</p>
@@ -257,8 +281,8 @@
                         <path d="M95,50 L55,45 L50,50 L55,55 Z" fill="#D4AF37" opacity="0.5"/>
                     </svg>
                 </div>
-                <h2 class="section-title">Wedding Details</h2>
-                <p class="section-subtitle">Save the auspicious date</p>
+                <h2 class="section-title" data-i18n="details_title">Wedding Details</h2>
+                <p class="section-subtitle" data-i18n="details_subtitle">Save the auspicious date</p>
             </div>
 
             <div class="details-grid">
@@ -272,9 +296,9 @@
                             <text x="30" y="42" text-anchor="middle" fill="#D4AF37" font-size="14" font-weight="bold">20</text>
                         </svg>
                     </div>
-                    <h3 class="detail-title">Wedding Date</h3>
-                    <p class="detail-text">November 20, 2026</p>
-                    <p class="detail-subtext">Friday (Sukravaaram)</p>
+                    <h3 class="detail-title" data-i18n="detail_date_title">Wedding Date</h3>
+                    <p class="detail-text" data-i18n="detail_date_text">November 20, 2026</p>
+                    <p class="detail-subtext" data-i18n="detail_date_sub">Friday (Sukravaaram)</p>
                 </div>
 
                 <div class="detail-card reveal-up" style="animation-delay: 0.2s;">
@@ -286,9 +310,9 @@
                             <circle cx="30" cy="30" r="3" fill="#D4AF37"/>
                         </svg>
                     </div>
-                    <h3 class="detail-title">Muhurtham Time</h3>
-                    <p class="detail-text">9:10 AM</p>
-                    <p class="detail-subtext">Kaartheeka Maasam · Ekaadasi</p>
+                    <h3 class="detail-title" data-i18n="detail_time_title">Muhurtham Time</h3>
+                    <p class="detail-text" data-i18n="detail_time_text">9:10 AM</p>
+                    <p class="detail-subtext" data-i18n="detail_time_sub">Kaartheeka Maasam · Ekaadasi</p>
                 </div>
 
                 <div class="detail-card reveal-up" style="animation-delay: 0.4s;">
@@ -301,9 +325,9 @@
                             <line x1="14" y1="42" x2="46" y2="42" stroke="#D4AF37" stroke-width="1"/>
                         </svg>
                     </div>
-                    <h3 class="detail-title">Venue</h3>
-                    <p class="detail-text">Sri Vaasavi Kanyaka Parameswari</p>
-                    <p class="detail-subtext">Kalyana Mandapam, Gudur</p>
+                    <h3 class="detail-title" data-i18n="detail_venue_title">Venue</h3>
+                    <p class="detail-text" data-i18n="detail_venue_text">Sri Vaasavi Kanyaka Parameswari</p>
+                    <p class="detail-subtext" data-i18n="detail_venue_sub">Kalyana Mandapam, Gudur</p>
                 </div>
             </div>
 
@@ -311,12 +335,12 @@
             <div class="events-banner reveal-up">
                 <div class="event-item">
                     <span class="event-date">Nov 18, 2026</span>
-                    <span class="event-name">Wedding Celebrations Begin</span>
+                    <span class="event-name" data-i18n="event1_name">Wedding Celebrations Begin</span>
                 </div>
                 <div class="event-divider">✦</div>
                 <div class="event-item">
                     <span class="event-date">Nov 20, 2026</span>
-                    <span class="event-name">Muhurtham & Main Ceremony</span>
+                    <span class="event-name" data-i18n="event2_name">Muhurtham & Main Ceremony</span>
                 </div>
             </div>
         </div>
@@ -343,8 +367,8 @@
                         <ellipse cx="80" cy="50" rx="12" ry="6" fill="#FFD700" opacity="0.4"/>
                     </svg>
                 </div>
-                <h2 class="section-title">Sacred Rituals</h2>
-                <p class="section-subtitle">The divine ceremonies of our wedding</p>
+                <h2 class="section-title" data-i18n="rituals_title">Sacred Rituals</h2>
+                <p class="section-subtitle" data-i18n="rituals_subtitle">The divine ceremonies of our wedding</p>
             </div>
 
             <div class="rituals-timeline">
@@ -491,6 +515,66 @@
 
     <!-- ===== VENUE SECTION ===== -->
     <section class="section venue-section" id="venue">
+        <!-- 3D Mandapam Cultural Scene -->
+        <div class="mandapam-scene" id="mandapamScene">
+            <!-- Mandapam Image -->
+            <div class="mandapam-structure">
+                <img src="images/mandapam.png" alt="Kalyana Mandapam" class="mandapam-img">
+            </div>
+
+            <!-- Banana Trees -->
+            <div class="banana-tree tree-left-1">
+                <img src="images/banana.png" alt="Banana Tree" class="tree-img">
+            </div>
+            <div class="banana-tree tree-right-1">
+                <img src="images/banana.png" alt="Banana Tree" class="tree-img">
+            </div>
+
+            <!-- Coconut Trees (working image on both sides) -->
+            <div class="coconut-tree coconut-left">
+                <img src="https://wallpapers.com/images/hd/coconut-tree-background-png-20-cs543c1f7515njia.png" alt="Coconut Tree" class="coconut-img">
+            </div>
+            <div class="coconut-tree coconut-right">
+                <img src="https://wallpapers.com/images/hd/coconut-tree-background-png-20-cs543c1f7515njia.png" alt="Coconut Tree" class="coconut-img">
+            </div>
+
+            <!-- Divine Deities -->
+            <div class="cultural-people">
+                <div class="person person-1">
+                    <img src="https://m.media-amazon.com/images/I/61HPkg5zBbL._SL1000_.jpg" alt="Sri Maha Vishnu" class="person-img" title="Sri Maha Vishnu">
+                    <span class="deity-label">Vishnu</span>
+                </div>
+                <div class="person person-2">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-E1TmRgwPiLdwFDuYm6DRMq6EoqemlNZ_WQ&s" alt="Lord Shiva" class="person-img" title="Lord Shiva">
+                    <span class="deity-label">Shiva</span>
+                </div>
+                <div class="person person-3">
+                    <img src="https://m.media-amazon.com/images/I/61G9c3pQaSL._AC_UF894,1000_QL80_.jpg" alt="Sai Baba" class="person-img" title="Sai Baba">
+                    <span class="deity-label">Sai Baba</span>
+                </div>
+                <div class="person person-4">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6ft36zkqTy0iV_nH5d-jigXUHEDR_mur6nw&s" alt="Lord Hanuman" class="person-img" title="Lord Hanuman">
+                    <span class="deity-label">Hanuman</span>
+                </div>
+            </div>
+
+            <!-- Diyas (oil lamps) -->
+            <div class="diya diya-left">🪔</div>
+            <div class="diya diya-right">🪔</div>
+
+            <!-- Mango Leaf Torana -->
+            <div class="torana-garland">
+                <svg viewBox="0 0 500 60" width="100%" height="60">
+                    <path d="M0,10 Q62,50 125,10 Q188,50 250,10 Q312,50 375,10 Q438,50 500,10" stroke="#228B22" fill="none" stroke-width="4"/>
+                    <path d="M0,10 Q62,50 125,10 Q188,50 250,10 Q312,50 375,10 Q438,50 500,10" stroke="#2E8B2E" fill="none" stroke-width="8" opacity="0.3"/>
+                    <circle cx="62" cy="30" r="6" fill="#FF6600"/>
+                    <circle cx="188" cy="30" r="6" fill="#FFD700"/>
+                    <circle cx="312" cy="30" r="6" fill="#FF6600"/>
+                    <circle cx="438" cy="30" r="6" fill="#FFD700"/>
+                </svg>
+            </div>
+        </div>
+
         <div class="container">
             <div class="section-header">
                 <div class="mandala-small">
@@ -503,40 +587,93 @@
                         <ellipse cx="80" cy="50" rx="12" ry="6" fill="#D4AF37" opacity="0.4"/>
                     </svg>
                 </div>
-                <h2 class="section-title">Wedding Venue</h2>
-                <p class="section-subtitle">We would be honoured by your presence</p>
+                <h2 class="section-title" data-i18n="venue_title">Wedding Venue</h2>
+                <p class="section-subtitle" data-i18n="venue_subtitle">We would be honoured by your presence</p>
             </div>
 
-            <div class="venue-card reveal-up">
+            <div class="venue-card reveal-up venue-3d-card" id="venueCard">
                 <div class="venue-info">
-                    <div class="venue-icon">
-                        <svg viewBox="0 0 60 60" width="50" height="50">
-                            <path d="M30,5 L30,12" stroke="#D4AF37" stroke-width="2"/>
-                            <path d="M18,12 L42,12 L42,18 Q42,22 38,24 L30,28 L22,24 Q18,22 18,18 Z" fill="#D4AF37" opacity="0.3" stroke="#D4AF37" stroke-width="1.5"/>
-                            <rect x="12" y="28" width="36" height="24" rx="2" fill="none" stroke="#D4AF37" stroke-width="2"/>
-                            <line x1="30" y1="28" x2="30" y2="52" stroke="#D4AF37" stroke-width="1"/>
-                            <rect x="24" y="40" width="12" height="12" fill="none" stroke="#D4AF37" stroke-width="1.5"/>
-                            <path d="M8,52 L52,52" stroke="#D4AF37" stroke-width="2"/>
-                            <circle cx="22" cy="36" r="2" fill="#D4AF37"/>
-                            <circle cx="38" cy="36" r="2" fill="#D4AF37"/>
+                    <div class="venue-icon venue-icon-animated">
+                        <svg viewBox="0 0 80 80" width="60" height="60">
+                            <!-- Mandapam icon -->
+                            <path d="M40,5 L40,15" stroke="#D4AF37" stroke-width="2"/>
+                            <path d="M20,15 Q20,8 40,5 Q60,8 60,15" fill="#D4AF37" opacity="0.6" stroke="#D4AF37" stroke-width="1.5"/>
+                            <!-- Gopuram shape -->
+                            <path d="M15,15 L15,22 Q15,25 20,27 L60,27 Q65,25 65,22 L65,15" fill="none" stroke="#D4AF37" stroke-width="1.5"/>
+                            <rect x="10" y="27" width="60" height="40" rx="3" fill="none" stroke="#D4AF37" stroke-width="2"/>
+                            <line x1="40" y1="27" x2="40" y2="67" stroke="#D4AF37" stroke-width="1"/>
+                            <!-- Door arch -->
+                            <path d="M30,67 L30,45 Q30,38 40,35 Q50,38 50,45 L50,67" fill="none" stroke="#D4AF37" stroke-width="1.5"/>
+                            <!-- Pillars -->
+                            <rect x="15" y="27" width="6" height="40" fill="none" stroke="#D4AF37" stroke-width="1"/>
+                            <rect x="59" y="27" width="6" height="40" fill="none" stroke="#D4AF37" stroke-width="1"/>
+                            <!-- Base -->
+                            <path d="M5,67 L75,67" stroke="#D4AF37" stroke-width="2"/>
+                            <!-- Flags -->
+                            <path d="M20,15 Q15,12 20,10" fill="#FF6600" stroke="#FF6600" stroke-width="0.5"/>
+                            <path d="M60,15 Q65,12 60,10" fill="#FF6600" stroke="#FF6600" stroke-width="0.5"/>
+                            <!-- Kalash on top -->
+                            <circle cx="40" cy="5" r="3" fill="#FFD700"/>
                         </svg>
                     </div>
-                    <h3 class="venue-name">Sri Vaasavi Kanyaka Parameswari<br>Kalyana Mandapam</h3>
-                    <p class="venue-address">Gudur, Andhra Pradesh</p>
+                    <h3 class="venue-name" data-i18n="venue_name">Sri Vaasavi Kanyaka Parameswari<br>Kalyana Mandapam</h3>
+                    <p class="venue-address" data-i18n="venue_address">Gudur, Andhra Pradesh</p>
+                    <div class="venue-features">
+                        <span class="venue-feature" data-i18n="venue_feat1">🪔 Sacred Fire Altar</span>
+                        <span class="venue-feature" data-i18n="venue_feat2">🌺 Flower Decorated</span>
+                        <span class="venue-feature" data-i18n="venue_feat3">🎵 Nadaswaram</span>
+                    </div>
                     <a href="https://www.google.com/maps/search/gudur+kalyana+mandapam/@14.0539841,79.9661873,15z?hl=en&entry=ttu&g_ep=EgoyMDI2MDQyOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="venue-btn">
                         <span>📍</span> Open in Google Maps
                     </a>
                 </div>
                 <div class="venue-map">
+                    <div class="map-overlay" id="mapOverlay">
+                        <div class="map-path-animation">
+                            <svg viewBox="0 0 400 350" width="100%" height="100%">
+                                <path d="M200,20 Q180,80 200,140 Q220,200 180,260 Q160,300 200,340" stroke="#D4AF37" fill="none" stroke-width="2" stroke-dasharray="8,4" class="map-route">
+                                    <animate attributeName="stroke-dashoffset" from="100" to="0" dur="3s" repeatCount="indefinite"/>
+                                </path>
+                                <circle cx="200" cy="20" r="8" fill="#DC143C" opacity="0.8">
+                                    <animate attributeName="r" values="6;10;6" dur="1.5s" repeatCount="indefinite"/>
+                                </circle>
+                                <text x="220" y="25" fill="#D4AF37" font-size="12" font-family="serif">You</text>
+                                <circle cx="200" cy="340" r="10" fill="#FFD700">
+                                    <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite"/>
+                                </circle>
+                                <text x="220" y="345" fill="#D4AF37" font-size="11" font-family="serif">Mandapam ✨</text>
+                            </svg>
+                        </div>
+                        <button class="map-reveal-btn" id="mapRevealBtn" onclick="revealMap()">🗺️ View on Map</button>
+                    </div>
                     <iframe
+                        id="venueMapFrame"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3870.0!2d79.9661873!3d14.0539841!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTTCsDAzJzE0LjMiTiA3OcKwNTcnNTguMyJF!5e0!3m2!1sen!2sin!4v1"
                         width="100%"
                         height="350"
-                        style="border:0; border-radius: 12px;"
+                        style="border:0; border-radius: 12px; opacity: 0; transition: opacity 0.8s ease;"
                         allowfullscreen=""
                         loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
+                </div>
+            </div>
+
+            <!-- Visitor Counter -->
+            <div class="visitor-counter reveal-up" id="visitorCounter">
+                <div class="visitor-counter-inner">
+                    <div class="visitor-diya">🪔</div>
+                    <div class="visitor-info">
+                        <p class="visitor-label" data-i18n="visitor_label">Blessings Received</p>
+                        <div class="visitor-number" id="visitorNumber">
+                            <span class="visitor-digit">0</span>
+                            <span class="visitor-digit">0</span>
+                            <span class="visitor-digit">0</span>
+                            <span class="visitor-digit">0</span>
+                        </div>
+                        <p class="visitor-sublabel" data-i18n="visitor_sublabel">People have visited & blessed this invitation</p>
+                    </div>
+                    <div class="visitor-diya">🪔</div>
                 </div>
             </div>
         </div>
@@ -562,23 +699,30 @@
                         <ellipse cx="80" cy="50" rx="12" ry="6" fill="#FFD700" opacity="0.4"/>
                     </svg>
                 </div>
-                <h2 class="section-title">RSVP</h2>
-                <p class="section-subtitle">Kindly honour us with your gracious presence</p>
+                <h2 class="section-title" data-i18n="rsvp_title">RSVP</h2>
+                <p class="section-subtitle" data-i18n="rsvp_subtitle">Kindly honour us with your gracious presence</p>
             </div>
 
             <div class="rsvp-card reveal-up">
-                <p class="rsvp-message">
+                <div class="rsvp-card-diya">🪔</div>
+                <p class="rsvp-message" data-i18n="rsvp_message">
                     Your presence is the greatest blessing for our new beginning. 
                     Please grace us with your attendance and blessings.
                 </p>
+                <div class="rsvp-divider">
+                    <span>✦</span><span>❁</span><span>✦</span>
+                </div>
                 <div class="rsvp-contact">
-                    <p class="rsvp-label">For any queries, please contact:</p>
-                    <a href="mailto:abhinavya021@gmail.com" class="rsvp-email">✉ abhinavya021@gmail.com</a>
+                    <p class="rsvp-label" data-i18n="rsvp_contact_label">Kaarya Nirvahakulu (Grand Parents)</p>
+                    <p class="rsvp-elder-name">Sri P. Yamana Rao</p>
+                    <p class="rsvp-elder-connector">&</p>
+                    <p class="rsvp-elder-name">Smt. P. Nagamani</p>
                 </div>
                 <div class="rsvp-blessing">
                     <p>॥ సర్వే జనాః సుఖినో భవంతు ॥</p>
-                    <p class="blessing-translation">May all beings be happy</p>
+                    <p class="blessing-translation" data-i18n="blessing_translation">May all beings be happy</p>
                 </div>
+                <div class="rsvp-card-diya-bottom">🪔</div>
             </div>
         </div>
     </section>
@@ -588,24 +732,35 @@
         <div class="footer-garland">
             <div class="garland-flower">🌺</div>
             <div class="garland-flower">🌼</div>
+            <div class="garland-flower">🪷</div>
             <div class="garland-flower">🌺</div>
             <div class="garland-flower">🌼</div>
+            <div class="garland-flower">🪷</div>
             <div class="garland-flower">🌺</div>
             <div class="garland-flower">🌼</div>
-            <div class="garland-flower">🌺</div>
+            <div class="garland-flower">🪷</div>
         </div>
         <div class="footer-content">
+            <div class="footer-om">🕉</div>
             <p class="footer-names">Abhilash ❤ Navya Sri</p>
             <p class="footer-date">November 20, 2026</p>
             <div class="footer-ornament">
-                <svg viewBox="0 0 200 30" width="200" height="30">
-                    <path d="M0,15 Q50,0 100,15 Q150,30 200,15" stroke="#D4AF37" fill="none" stroke-width="1.5"/>
-                    <circle cx="100" cy="15" r="4" fill="#D4AF37"/>
-                    <circle cx="50" cy="8" r="2" fill="#D4AF37"/>
-                    <circle cx="150" cy="22" r="2" fill="#D4AF37"/>
+                <svg viewBox="0 0 300 30" width="300" height="30">
+                    <path d="M0,15 Q75,0 150,15 Q225,30 300,15" stroke="#D4AF37" fill="none" stroke-width="1.5"/>
+                    <path d="M0,15 Q75,30 150,15 Q225,0 300,15" stroke="#D4AF37" fill="none" stroke-width="1.5" opacity="0.5"/>
+                    <circle cx="150" cy="15" r="5" fill="#D4AF37"/>
+                    <circle cx="75" cy="8" r="2.5" fill="#D4AF37"/>
+                    <circle cx="225" cy="22" r="2.5" fill="#D4AF37"/>
+                    <circle cx="37" cy="12" r="1.5" fill="#D4AF37" opacity="0.5"/>
+                    <circle cx="263" cy="18" r="1.5" fill="#D4AF37" opacity="0.5"/>
                 </svg>
             </div>
-            <p class="footer-text">With Love & Blessings 🙏</p>
+            <p class="footer-text" data-i18n="footer_text">With Love & Blessings 🙏</p>
+            <div class="footer-diyas">
+                <span>🪔</span>
+                <span>✨</span>
+                <span>🪔</span>
+            </div>
         </div>
         <div class="footer-bottom">
             <p>॥ శుభం భవతు ॥</p>
@@ -613,8 +768,8 @@
     </footer>
 
     <!-- Audio Toggle -->
-    <button class="audio-toggle" id="audioToggle" title="Toggle Music">
-        🔔
+    <button class="audio-toggle" id="audioToggle" title="Toggle Mangalam Music">
+        🔇
     </button>
 
     <script src="script.js"></script>
