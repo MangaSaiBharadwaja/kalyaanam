@@ -599,6 +599,350 @@ body {
     background: rgba(212,175,55,0.08);
 }
 
+/* ===== GRAND DOOR OPENING ANIMATION ===== */
+.grand-doors {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+    pointer-events: none;
+    perspective: 1800px;
+}
+
+.door {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    backface-visibility: hidden;
+}
+
+.door-left {
+    left: 0;
+    transform-origin: left center;
+    transition: transform 2.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.door-right {
+    right: 0;
+    transform-origin: right center;
+    transition: transform 2.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.door-panel {
+    width: 100%;
+    height: 100%;
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 80px,
+            rgba(212,175,55,0.04) 80px,
+            rgba(212,175,55,0.04) 81px
+        ),
+        linear-gradient(180deg, #1a0500 0%, #2a0e00 15%, #3a1500 40%, #2a0e00 70%, #1a0500 100%);
+    border-right: 2px solid rgba(212,175,55,0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: inset 0 0 100px rgba(0,0,0,0.5), 0 0 40px rgba(0,0,0,0.6);
+}
+
+.door-right .door-panel {
+    border-right: none;
+    border-left: 2px solid rgba(212,175,55,0.4);
+}
+
+.door-ornament-top {
+    position: absolute;
+    top: 20px;
+    width: 70%;
+    opacity: 0.7;
+}
+
+.door-ornament-bottom {
+    position: absolute;
+    bottom: 20px;
+    width: 70%;
+    opacity: 0.7;
+}
+
+.door-handle {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+}
+
+.door-handle-right {
+    right: 24px;
+}
+
+.door-handle-left {
+    left: 24px;
+}
+
+.handle-ring {
+    width: 36px;
+    height: 36px;
+    border: 3px solid #D4AF37;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 0 15px rgba(212,175,55,0.5), inset 0 0 8px rgba(212,175,55,0.2);
+    animation: handleGlow 2s ease-in-out infinite;
+}
+
+.handle-ring::after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    background: #D4AF37;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(212,175,55,0.6);
+}
+
+@keyframes handleGlow {
+    0%, 100% { box-shadow: 0 0 15px rgba(212,175,55,0.4), inset 0 0 8px rgba(212,175,55,0.2); }
+    50% { box-shadow: 0 0 30px rgba(212,175,55,0.8), inset 0 0 15px rgba(212,175,55,0.4); }
+}
+
+.door-pattern {
+    text-align: center;
+    position: relative;
+}
+
+.door-mandala {
+    animation: doorMandalaRotate 20s linear infinite;
+    opacity: 0.7;
+}
+
+@keyframes doorMandalaRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.door-text-sanskrit {
+    font-family: var(--font-telugu);
+    color: var(--gold);
+    font-size: 1.6rem;
+    letter-spacing: 4px;
+    margin-top: 16px;
+    text-shadow: 0 0 20px rgba(212,175,55,0.6);
+    animation: doorTextPulse 3s ease-in-out infinite;
+}
+
+@keyframes doorTextPulse {
+    0%, 100% { opacity: 0.6; text-shadow: 0 0 20px rgba(212,175,55,0.4); }
+    50% { opacity: 1; text-shadow: 0 0 40px rgba(212,175,55,0.8); }
+}
+
+/* Light beam that appears from center as doors open */
+.door-light-beam {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 100%;
+    background: radial-gradient(ellipse at center, rgba(255,215,0,0.25) 0%, rgba(255,215,0,0.08) 40%, transparent 70%);
+    opacity: 0;
+    transition: width 2s ease 0.3s, opacity 1.5s ease 0.2s;
+    pointer-events: none;
+}
+
+/* Golden particles */
+.door-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 51;
+}
+
+.door-particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #FFD700;
+    border-radius: 50%;
+    opacity: 0;
+    box-shadow: 0 0 6px rgba(255,215,0,0.6);
+}
+
+/* Door OPENED state */
+.grand-doors.doors-opened .door-left {
+    transform: rotateY(-105deg);
+}
+
+.grand-doors.doors-opened .door-right {
+    transform: rotateY(105deg);
+}
+
+.grand-doors.doors-opened .door-light-beam {
+    width: 100%;
+    opacity: 1;
+}
+
+/* After doors fully open, fade the whole overlay away */
+.grand-doors.doors-hidden {
+    opacity: 0;
+    transition: opacity 1s ease 0.5s;
+    visibility: hidden;
+}
+
+/* Hero content hidden until doors open */
+.hero-content {
+    opacity: 0;
+    transform: scale(0.92);
+    transition: none;
+}
+
+.hero.doors-revealed .hero-content {
+    animation: heroContentReveal 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.6s;
+}
+
+@keyframes heroContentReveal {
+    0% {
+        opacity: 0;
+        transform: scale(0.92);
+        filter: brightness(2.5) blur(8px);
+    }
+    30% {
+        opacity: 1;
+        filter: brightness(1.8) blur(3px);
+    }
+    60% {
+        transform: scale(1.02);
+        filter: brightness(1.2) blur(0px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: brightness(1) blur(0);
+    }
+}
+
+/* Override original fade-in animations - they run after doors open */
+.hero.doors-revealed .ornament-top {
+    animation: fadeInDown 0.8s ease 1.0s forwards;
+}
+.hero.doors-revealed .hero-telugu {
+    animation: fadeInDown 0.8s ease 1.2s forwards;
+}
+.hero.doors-revealed .hero-subtitle-sanskrit {
+    animation: fadeInDown 0.8s ease 1.4s forwards;
+}
+.hero.doors-revealed .hero-om {
+    animation: fadeInScale 1s ease 1.5s forwards;
+}
+.hero.doors-revealed .hero-title {
+    animation: heroTitleReveal 1.2s ease 1.7s forwards;
+}
+.hero.doors-revealed .hero-tagline {
+    animation: fadeInUp 0.8s ease 2.0s forwards;
+}
+.hero.doors-revealed .gotra-lineage-banner {
+    animation: gotraReveal 1.2s ease 2.2s forwards;
+}
+.hero.doors-revealed .hero-image-frame {
+    animation: frameReveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) 2.5s forwards;
+}
+.hero.doors-revealed .hero-date-box {
+    animation: fadeInUp 0.8s ease 2.9s forwards;
+}
+.hero.doors-revealed .sumuhurtam-banner {
+    animation: gotraReveal 1s ease 3.1s forwards;
+}
+.hero.doors-revealed .countdown {
+    animation: fadeInUp 0.8s ease 3.4s forwards;
+}
+.hero.doors-revealed .scroll-down {
+    animation: fadeInUp 0.8s ease 3.7s forwards;
+}
+
+/* Dramatic title reveal */
+@keyframes heroTitleReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.85);
+        filter: blur(6px);
+    }
+    40% {
+        opacity: 1;
+        filter: blur(0);
+    }
+    70% {
+        transform: translateY(-5px) scale(1.03);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+/* Gotra banner dramatic entry */
+@keyframes gotraReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(50px) scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-8px) scale(1.02);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Frame zoom reveal */
+@keyframes frameReveal {
+    0% {
+        opacity: 0;
+        transform: scale(0.3) rotateY(20deg);
+        filter: brightness(3) blur(10px);
+    }
+    30% {
+        opacity: 1;
+        filter: brightness(1.5) blur(2px);
+    }
+    70% {
+        transform: scale(1.05) rotateY(-3deg);
+        filter: brightness(1.1) blur(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotateY(0deg);
+        filter: brightness(1) blur(0);
+    }
+}
+
+/* Curtain drape and banana leaves also hidden until doors open */
+.hero .curtain-drape,
+.hero .banana-leaf {
+    opacity: 0;
+}
+.hero.doors-revealed .curtain-drape {
+    animation: fadeInDown 1s ease 0.8s forwards;
+}
+.hero.doors-revealed .banana-leaf {
+    animation: fadeInScale 1.2s ease 1s forwards;
+}
+
 /* ===== HERO SECTION ===== */
 .hero {
     position: relative;
@@ -607,11 +951,11 @@ body {
     align-items: center;
     justify-content: center;
     background:
-        radial-gradient(ellipse at 20% 50%, rgba(34,139,34,0.08) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 50%, rgba(34,139,34,0.08) 0%, transparent 50%),
-        radial-gradient(ellipse at center 40%, rgba(212,175,55,0.06) 0%, transparent 50%),
-        radial-gradient(ellipse at center, rgba(139,0,0,0.1) 0%, transparent 70%),
-        linear-gradient(180deg, #1a0800 0%, #2d1200 20%, #3d1a00 40%, #2d1200 80%, #1a0800 100%);
+        radial-gradient(ellipse at 50% 30%, rgba(212,175,55,0.1) 0%, transparent 45%),
+        radial-gradient(ellipse at 20% 50%, rgba(34,139,34,0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 50%, rgba(34,139,34,0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at center 60%, rgba(139,0,0,0.15) 0%, transparent 55%),
+        linear-gradient(180deg, #0f0500 0%, #1a0800 10%, #2d1200 25%, #3d1a00 45%, #2d1200 75%, #1a0800 95%, #0f0500 100%);
     overflow: hidden;
     padding: 80px 20px 40px;
 }
@@ -691,12 +1035,12 @@ body {
     text-align: center;
     max-width: 700px;
     margin: 0 auto;
+    /* Initial state controlled by door animation */
 }
 
 .ornament-top {
     margin-bottom: 15px;
     opacity: 0;
-    animation: fadeInDown 1s ease 0.5s forwards;
 }
 
 .hero-telugu {
@@ -706,7 +1050,6 @@ body {
     letter-spacing: 3px;
     margin-bottom: 5px;
     opacity: 0;
-    animation: fadeInDown 1s ease 0.7s forwards;
 }
 
 .hero-subtitle-sanskrit {
@@ -715,16 +1058,13 @@ body {
     font-size: 0.95rem;
     letter-spacing: 2px;
     margin-bottom: 15px;
-    opacity: 0.7;
     opacity: 0;
-    animation: fadeInDown 1s ease 0.9s forwards;
 }
 
 .hero-om {
     font-size: 3rem;
     margin-bottom: 10px;
     opacity: 0;
-    animation: fadeInScale 1.2s ease 1s forwards;
     filter: drop-shadow(0 0 20px rgba(212,175,55,0.6));
     position: relative;
 }
@@ -751,36 +1091,42 @@ body {
 .hero-title {
     margin-bottom: 10px;
     opacity: 0;
-    animation: fadeInUp 1s ease 1.2s forwards;
 }
 
 .groom-name, .bride-name {
     font-family: var(--font-script);
     color: var(--gold-shimmer);
-    font-size: 3.5rem;
+    font-size: 3.8rem;
     display: block;
-    line-height: 1.2;
-    background: linear-gradient(135deg, #C5A028 0%, #FFD700 20%, #FFEC8B 45%, #FFD700 65%, #C5A028 100%);
-    background-size: 200% auto;
+    line-height: 1.15;
+    background: linear-gradient(135deg, #B8860B 0%, #FFD700 15%, #FFEC8B 35%, #FFF8DC 50%, #FFEC8B 65%, #FFD700 85%, #B8860B 100%);
+    background-size: 300% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: heroNameShine 5s linear infinite;
-    filter: drop-shadow(0 2px 10px rgba(255,215,0,0.25));
+    animation: heroNameShine 4s linear infinite;
+    filter: drop-shadow(0 3px 15px rgba(255,215,0,0.35));
+    padding: 2px 0;
 }
 
 @keyframes heroNameShine {
     0% { background-position: 0% center; }
-    100% { background-position: 200% center; }
+    100% { background-position: 300% center; }
 }
 
 .amp {
     font-family: var(--font-script);
     color: var(--deep-red);
-    font-size: 2rem;
+    font-size: 2.2rem;
     display: block;
-    margin: 5px 0;
-    text-shadow: 0 0 20px rgba(220,20,60,0.3);
+    margin: 8px 0;
+    text-shadow: 0 0 25px rgba(220,20,60,0.4), 0 0 50px rgba(220,20,60,0.15);
+    animation: ampPulse 3s ease-in-out infinite;
+}
+
+@keyframes ampPulse {
+    0%, 100% { transform: scale(1); text-shadow: 0 0 25px rgba(220,20,60,0.4); }
+    50% { transform: scale(1.08); text-shadow: 0 0 40px rgba(220,20,60,0.6), 0 0 80px rgba(220,20,60,0.2); }
 }
 
 .hero-tagline {
@@ -791,7 +1137,6 @@ body {
     letter-spacing: 3px;
     margin-bottom: 25px;
     opacity: 0;
-    animation: fadeInUp 1s ease 1.4s forwards;
 }
 
 /* ===== GOTRA LINEAGE BANNER ===== */
@@ -808,7 +1153,6 @@ body {
     border-radius: 20px;
     position: relative;
     opacity: 0;
-    animation: fadeInUp 1s ease 1.45s forwards;
     backdrop-filter: blur(8px);
     box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(212,175,55,0.15);
 }
@@ -831,15 +1175,21 @@ body {
 }
 
 .gotra-rishi-frame {
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
     margin: 0 auto 10px;
     border-radius: 50%;
-    border: 2px solid var(--gold);
+    border: 2.5px solid var(--gold);
     overflow: hidden;
-    box-shadow: 0 0 20px rgba(212,175,55,0.3), 0 4px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 0 25px rgba(212,175,55,0.4), 0 4px 20px rgba(0,0,0,0.3), inset 0 0 15px rgba(212,175,55,0.1);
     background: linear-gradient(135deg, rgba(212,175,55,0.15), rgba(139,0,0,0.2));
     position: relative;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.gotra-rishi-frame:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 40px rgba(212,175,55,0.6), 0 8px 30px rgba(0,0,0,0.3);
 }
 
 .gotra-rishi-frame::after {
@@ -961,20 +1311,37 @@ body {
 
 /* Caricature Frame */
 .hero-image-frame {
-    margin: 25px auto;
-    max-width: 320px;
+    margin: 30px auto;
+    max-width: 340px;
     opacity: 0;
-    animation: fadeInScale 1.2s ease 1.5s forwards;
+    perspective: 800px;
 }
 
 .frame-border {
     position: relative;
-    padding: 12px;
-    background: linear-gradient(135deg, var(--gold), var(--gold-dark), var(--gold), var(--gold-dark));
-    border-radius: 20px;
+    padding: 14px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark), var(--gold-shimmer), var(--gold-dark), var(--gold));
+    background-size: 300% auto;
+    animation: frameBorderShine 6s linear infinite;
+    border-radius: 22px;
     box-shadow:
-        0 0 30px rgba(212,175,55,0.3),
+        0 0 40px rgba(212,175,55,0.35),
+        0 0 80px rgba(212,175,55,0.1),
         inset 0 0 20px rgba(0,0,0,0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.frame-border:hover {
+    transform: scale(1.03);
+    box-shadow:
+        0 0 60px rgba(212,175,55,0.5),
+        0 0 100px rgba(212,175,55,0.15),
+        inset 0 0 20px rgba(0,0,0,0.2);
+}
+
+@keyframes frameBorderShine {
+    0% { background-position: 0% center; }
+    100% { background-position: 300% center; }
 }
 
 .frame-corner {
@@ -1005,7 +1372,6 @@ body {
     margin: 25px auto;
     max-width: 450px;
     opacity: 0;
-    animation: fadeInUp 1s ease 1.7s forwards;
     box-shadow: 0 8px 30px rgba(0,0,0,0.3), inset 0 1px 0 rgba(212,175,55,0.15);
     backdrop-filter: blur(6px);
     position: relative;
@@ -1058,6 +1424,94 @@ body {
     margin-bottom: 5px;
 }
 
+/* Sumuhurtam Banner */
+.sumuhurtam-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin: 20px auto 10px;
+    max-width: 600px;
+    padding: 20px 24px;
+    background: linear-gradient(135deg, rgba(212,175,55,0.08), rgba(139,0,0,0.25), rgba(212,175,55,0.08));
+    border: 1px solid rgba(212,175,55,0.3);
+    border-radius: 16px;
+    position: relative;
+    opacity: 0;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.25), inset 0 1px 0 rgba(212,175,55,0.1);
+}
+
+.sumuhurtam-banner::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(212,175,55,0.2), transparent, rgba(212,175,55,0.2));
+    z-index: -1;
+    animation: sumuhurtamGlow 4s ease-in-out infinite;
+}
+
+@keyframes sumuhurtamGlow {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+}
+
+.sumuhurtam-icon {
+    font-size: 1.8rem;
+    filter: drop-shadow(0 0 10px rgba(212,175,55,0.5));
+    animation: sumuhurtamDiya 2s ease-in-out infinite;
+}
+
+@keyframes sumuhurtamDiya {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 8px rgba(212,175,55,0.4)); }
+    50% { transform: scale(1.1); filter: drop-shadow(0 0 16px rgba(212,175,55,0.8)); }
+}
+
+.sumuhurtam-details {
+    text-align: center;
+    flex: 1;
+}
+
+.sumuhurtam-title {
+    font-family: var(--font-display);
+    color: var(--gold-shimmer);
+    font-size: 1rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    text-shadow: 0 0 15px rgba(255,215,0,0.4);
+}
+
+.sumuhurtam-text {
+    font-family: var(--font-body);
+    color: var(--cream);
+    font-size: 0.88rem;
+    font-style: italic;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+    opacity: 0.85;
+}
+
+.sumuhurtam-time {
+    font-family: var(--font-display);
+    color: var(--gold-light);
+    font-size: 1.15rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    text-shadow: 0 0 12px rgba(255,215,0,0.3);
+}
+
+.sumuhurtam-nakshatra {
+    font-family: var(--font-body);
+    color: var(--cream);
+    font-size: 0.82rem;
+    font-style: italic;
+    letter-spacing: 0.5px;
+    opacity: 0.75;
+}
+
 /* Countdown */
 .countdown {
     display: flex;
@@ -1066,7 +1520,6 @@ body {
     gap: 10px;
     margin: 30px 0 20px;
     opacity: 0;
-    animation: fadeInUp 1s ease 1.9s forwards;
 }
 
 .countdown-item {
@@ -1123,7 +1576,6 @@ body {
     margin-top: 20px;
     text-decoration: none;
     opacity: 0;
-    animation: fadeInUp 1s ease 2.1s forwards;
 }
 
 .scroll-arrow {
@@ -3329,8 +3781,39 @@ body {
         font-size: 1.1rem;
     }
 
+    .sumuhurtam-banner {
+        padding: 16px 14px;
+        gap: 10px;
+    }
+    .sumuhurtam-title {
+        font-size: 0.85rem;
+    }
+    .sumuhurtam-time {
+        font-size: 1rem;
+    }
+    .sumuhurtam-text,
+    .sumuhurtam-nakshatra {
+        font-size: 0.75rem;
+    }
+    .sumuhurtam-icon {
+        font-size: 1.4rem;
+    }
+
     .banana-leaf {
         display: none;
+    }
+
+    /* Door responsive */
+    .door-mandala svg {
+        width: 120px;
+        height: 120px;
+    }
+    .door-text-sanskrit {
+        font-size: 1.2rem;
+    }
+    .handle-ring {
+        width: 28px;
+        height: 28px;
     }
 
     .events-banner {
@@ -3504,6 +3987,22 @@ body {
 
     .gotra-label {
         font-size: 0.65rem;
+    }
+
+    .sumuhurtam-banner {
+        padding: 14px 10px;
+        gap: 8px;
+        max-width: 95%;
+    }
+    .sumuhurtam-title {
+        font-size: 0.78rem;
+        letter-spacing: 2px;
+    }
+    .sumuhurtam-time {
+        font-size: 0.9rem;
+    }
+    .sumuhurtam-icon {
+        font-size: 1.2rem;
     }
 
     .countdown {
