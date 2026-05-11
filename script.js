@@ -272,17 +272,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ===== FLOATING PETALS =====
     const petalsContainer = document.getElementById('petalsContainer');
-    const petalEmojis = ['🌸', '🌺', '🌼', '💐', '🪷', '✿'];
+    const flowerImages = [
+        'flower_images/1 (1).png', 'flower_images/1 (2).png', 'flower_images/1 (3).png',
+        'flower_images/1 (4).png', 'flower_images/1 (5).png', 'flower_images/1 (6).png',
+        'flower_images/1 (7).png', 'flower_images/1 (8).png', 'flower_images/1 (9).png'
+    ];
 
     function createPetal() {
-        const petal = document.createElement('div');
+        const petal = document.createElement('img');
         petal.classList.add('petal');
-        petal.textContent = petalEmojis[Math.floor(Math.random() * petalEmojis.length)];
+        petal.src = flowerImages[Math.floor(Math.random() * flowerImages.length)];
+        petal.alt = '';
         petal.style.left = Math.random() * 100 + 'vw';
-        petal.style.fontSize = (0.8 + Math.random() * 0.8) + 'rem';
+        const size = 25 + Math.random() * 30;
+        petal.style.width = size + 'px';
+        petal.style.height = size + 'px';
         petal.style.animationDuration = (8 + Math.random() * 8) + 's';
         petal.style.animationDelay = Math.random() * 2 + 's';
-        petal.style.opacity = 0.3 + Math.random() * 0.4;
+        petal.style.opacity = 0.4 + Math.random() * 0.4;
+
+        // Randomly choose petal animation style
+        const animations = ['petalFall', 'petalSpiral', 'petalDrift'];
+        petal.style.animationName = animations[Math.floor(Math.random() * animations.length)];
+
         petalsContainer.appendChild(petal);
 
         // Remove petal after animation
@@ -290,6 +302,41 @@ document.addEventListener('DOMContentLoaded', () => {
             petal.remove();
         }, 18000);
     }
+
+    // Flower burst effect - triggered on scroll near sections
+    function createFlowerBurst(x, y) {
+        for (let i = 0; i < 8; i++) {
+            const flower = document.createElement('img');
+            flower.classList.add('flower-burst');
+            flower.src = flowerImages[Math.floor(Math.random() * flowerImages.length)];
+            flower.alt = '';
+            flower.style.left = x + 'px';
+            flower.style.top = y + 'px';
+            flower.style.setProperty('--angle', (i * 45) + 'deg');
+            flower.style.setProperty('--distance', (40 + Math.random() * 60) + 'px');
+            const size = 20 + Math.random() * 15;
+            flower.style.width = size + 'px';
+            flower.style.height = size + 'px';
+            petalsContainer.appendChild(flower);
+            setTimeout(() => flower.remove(), 1500);
+        }
+    }
+
+    // Trigger flower burst on section entry
+    let burstTriggered = {};
+    const sectionObserverBurst = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !burstTriggered[entry.target.id]) {
+                burstTriggered[entry.target.id] = true;
+                const rect = entry.target.getBoundingClientRect();
+                createFlowerBurst(rect.left + rect.width / 2, rect.top + 50);
+            }
+        });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.section').forEach(section => {
+        sectionObserverBurst.observe(section);
+    });
 
     // Create initial petals
     for (let i = 0; i < 6; i++) {
