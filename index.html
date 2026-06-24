@@ -3,12 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhilash & Navya Sri - Wedding Invitation</title>
+    <meta name="theme-color" content="#7B1020">
+    <title>Abhilash ❤ Navya Sri - Wedding Invitation</title>
     <meta name="description" content="Wedding Invitation of Venkata Abhilash Kumar & Navya Sri Lalitha - November 2026">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Noto+Sans+Telugu:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+
+<style>
+.container{width:min(1200px,92%);margin-inline:auto}
+.section{padding:120px 0}
+.section-header{text-align:center;margin-bottom:72px}
+.section-title{font-size:clamp(2rem,4vw,3.5rem)}
+.section-subtitle{opacity:.85}
+
+.hero-actions{
+display:flex;gap:16px;justify-content:center;
+margin-top:30px;flex-wrap:wrap
+}
+.hero-btn{
+display:inline-flex;align-items:center;gap:.5rem;
+padding:14px 28px;border-radius:999px;
+font-weight:700;text-decoration:none;
+transition:.3s;
+}
+.hero-btn.primary{
+background:linear-gradient(135deg,#D4AF37,#F7D774);
+color:#5a1212;
+box-shadow:0 10px 30px rgba(212,175,55,.35);
+}
+.hero-btn.secondary{
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(8px);
+border:1px solid rgba(212,175,55,.4);
+color:#fff;
+}
+.hero-btn:hover{transform:translateY(-3px)}
+
+.hero::before{
+content:"";
+position:absolute;
+inset:-50%;
+background:radial-gradient(circle,rgba(255,215,0,.10),transparent 60%);
+animation:heroShimmer 12s linear infinite;
+pointer-events:none;
+}
+@keyframes heroShimmer{
+from{transform:rotate(0)}
+to{transform:rotate(360deg)}
+}
+
+.ritual-content{
+border-radius:20px;
+transition:.3s;
+}
+.ritual-content:hover{
+transform:translateY(-6px);
+}
+
+@media (prefers-reduced-motion: reduce){
+*{animation:none!important;transition:none!important}
+}
+</style>
+
 </head>
 <body>
 
@@ -220,40 +278,73 @@
 
             <h1 class="hero-title">
                 <span class="groom-name">Venkata Abhilash Kumar</span>
-                <span class="amp">&</span>
+                <span class="amp">❦</span>
                 <span class="bride-name">Navya Sri Lalitha</span>
             </h1>
 
-            <p class="hero-tagline" data-i18n="tagline">Are getting married!</p>
+            <p class="hero-tagline" data-i18n="tagline">Are getting married</p>
 
             <!-- Gotra Lineage Banner -->
             <div class="gotra-lineage-banner">
+
+                <!-- Groom Side -->
                 <div class="gotra-side gotra-groom">
                     <div class="gotra-rishi-frame">
                         <img src="kasyapa.png" alt="Kasyapa Maharshi" class="gotra-rishi-img">
                     </div>
-                    <p class="gotra-rishi-name">Kasyapa Maharshi</p>
-                    <p class="gotra-label">Groom's Gotram</p>
-                    <p class="gotra-name">Kasyapa Gotram</p>
+
+                    <p class="gotra-rishi-name" data-i18n="groom_rishi_name">
+                        Kasyapa Maharshi
+                    </p>
+
+                    <p class="gotra-label" data-i18n="groom_gotra_label">
+                        Groom's Gotram
+                    </p>
+
+                    <p class="gotra-name" data-i18n="groom_gotra_name">
+                        Kasyapa Gotram
+                    </p>
                 </div>
+
+                <!-- Center -->
                 <div class="gotra-center-divider">
                     <div class="gotra-sacred-symbol">🕉</div>
+
                     <div class="gotra-line"></div>
-                    <p class="gotra-heading">Sacred Lineage</p>
-                    <p class="gotra-subheading" data-i18n="gotra_subheading">వంశ పరంపర</p>
+
+                    <p class="gotra-heading" data-i18n="gotra_heading">
+                        Sacred Lineage
+                    </p>
+
+                    <p class="gotra-subheading" data-i18n="gotra_subheading">
+                        Ancestral Heritage
+                    </p>
+
                     <div class="gotra-line"></div>
-                    <div class="gotra-sacred-symbol">🪔</div>
+
+                    <div class="gotra-sacred-symbol"> 卐</div>
                 </div>
+
+                <!-- Bride Side -->
                 <div class="gotra-side gotra-bride">
                     <div class="gotra-rishi-frame">
                         <img src="bharadwaja.png" alt="Bharadwaja Maharshi" class="gotra-rishi-img">
                     </div>
-                    <p class="gotra-rishi-name">Bharadwaja Maharshi</p>
-                    <p class="gotra-label">Bride's Gotram</p>
-                    <p class="gotra-name">Bharadwaja Gotram</p>
-                </div>
-            </div>
 
+                    <p class="gotra-rishi-name" data-i18n="bride_rishi_name">
+                        Bharadwaja Maharshi
+                    </p>
+
+                    <p class="gotra-label" data-i18n="bride_gotra_label">
+                        Bride's Gotram
+                    </p>
+
+                    <p class="gotra-name" data-i18n="bride_gotra_name">
+                        Bharadwaja Gotram
+                    </p>
+                </div>
+
+            </div>
             <div class="hero-image-frame">
                 <div class="frame-border">
                     <div class="frame-corner corner-tl"></div>
@@ -304,9 +395,16 @@
                     <span class="countdown-number" id="seconds">00</span>
                     <span class="countdown-label">Seconds</span>
                 </div>
+            
+            </div>
+
+            <div class="hero-actions">
+                <a href="#venue" class="hero-btn primary">View Venue</a>
+                <a href="#rsvp" class="hero-btn secondary">Confirm Presence</a>
             </div>
 
             <a href="#couple" class="scroll-down">
+
                 <span class="scroll-arrow">▼</span>
             </a>
         </div>
@@ -351,64 +449,116 @@
             </div>
 
             <div class="couple-grid">
-                <!-- Groom -->
-                <div class="couple-card reveal-left">
-                    <div class="coconut-decor">🥥</div>
-                    <div class="couple-card-header">
-                        <h3 class="couple-role" data-i18n="groom_role">The Groom</h3>
-                    </div>
-                    <h3 class="couple-name" data-i18n="groom_name">Venkata Abhilash Kumar</h3>
-                    <div class="couple-gotra-badge">
-                        <img src="kasyapa.png" alt="Kasyapa Maharshi" class="couple-gotra-img">
-                        <span class="couple-gotra-text">Kasyapa Gotram</span>
-                    </div>
-                    <div class="parents-info">
-                        <p class="parents-label" data-i18n="son_of">Son of</p>
-                        <p class="parent-name">Sri Venkata Sarath Kumar</p>
-                        <p class="parent-connector">&</p>
-                        <p class="parent-name">Smt. Swarna Lakshmi</p>
-                    </div>
-                    <div class="marigold-divider">
-                        <span>❀</span><span>❀</span><span>❀</span>
-                    </div>
+
+            <!-- Groom -->
+            <div class="couple-card reveal-left">
+                <div class="coconut-decor"><img src="banana-groom.png" alt="🥥"></div>
+
+                <div class="couple-card-header">
+                    <h3 class="couple-role" data-i18n="groom_role">
+                        The Groom
+                    </h3>>
                 </div>
 
-                <!-- Center Heart/Symbol -->
-                <div class="couple-center">
-                    <img src="flower_images/mango-flowered-garland.png" alt="Mango Flowered Garland" class="couple-garland-img couple-garland-top">
-                    <div class="mangalsutra-icon">
-                        <svg viewBox="0 0 100 100" width="80" height="80">
-                            <path d="M50,85 Q20,60 20,40 Q20,20 35,15 Q50,10 50,30 Q50,10 65,15 Q80,20 80,40 Q80,60 50,85 Z" fill="#DC143C" stroke="#D4AF37" stroke-width="2"/>
-                            <circle cx="50" cy="45" r="5" fill="#FFD700"/>
-                            <circle cx="40" cy="38" r="3" fill="#FFD700"/>
-                            <circle cx="60" cy="38" r="3" fill="#FFD700"/>
-                        </svg>
-                    </div>
-                    <img src="flower_images/mango-flowered-garland.png" alt="Mango Flowered Garland" class="couple-garland-img couple-garland-bottom">
+                <h3 class="couple-name" data-i18n="groom_name">
+                    Venkata Abhilash Kumar
+                </h3>
+
+                <div class="couple-gotra-badge">
+                    <img src="kasyapa.png" alt="Kasyapa Maharshi" class="couple-gotra-img">
+                    <span class="couple-gotra-text" data-i18n="groom_gotra">
+                        Kasyapa Gotram
+                    </span>
                 </div>
 
-                <!-- Bride -->
-                <div class="couple-card reveal-right">
-                    <div class="coconut-decor">🥥</div>
-                    <div class="couple-card-header">
-                        <h3 class="couple-role" data-i18n="bride_role">The Bride</h3>
-                    </div>
-                    <h3 class="couple-name" data-i18n="bride_name">Navya Sri Lalitha</h3>
-                    <div class="couple-gotra-badge">
-                        <img src="bharadwaja.png" alt="Bharadwaja Maharshi" class="couple-gotra-img">
-                        <span class="couple-gotra-text">Bharadwaja Gotram</span>
-                    </div>
-                    <div class="parents-info">
-                        <p class="parents-label" data-i18n="daughter_of">Daughter of</p>
-                        <p class="parent-name">Dr. Sushruth Kumar</p>
-                        <p class="parent-connector">&</p>
-                        <p class="parent-name">Smt. SriDevi</p>
-                    </div>
-                    <div class="marigold-divider">
-                        <span>❀</span><span>❀</span><span>❀</span>
-                    </div>
+                <div class="parents-info">
+                    <p class="parents-label" data-i18n="son_of">
+                        Son of
+                    </p>
+
+                    <p class="parent-name" data-i18n="groom_father">
+                        Sri Venkata Sarath Kumar
+                    </p>
+
+                    <p class="parent-connector">&</p>
+
+                    <p class="parent-name" data-i18n="groom_mother">
+                        Smt. Swarna Lakshmi
+                    </p>
+                </div>
+
+                <div class="marigold-divider">
+                    <span>❀</span><span>❀</span><span>❀</span>
                 </div>
             </div>
+
+            <!-- Center Symbol -->
+            <div class="couple-center">
+                <img src="flower_images/mango-flowered-garland.png"
+                    alt="Mango Flowered Garland"
+                    class="couple-garland-img couple-garland-top">
+
+                <div class="mangalsutra-icon">
+                    <svg viewBox="0 0 100 100" width="80" height="80">
+                        <path d="M50,85 Q20,60 20,40 Q20,20 35,15 Q50,10 50,30 Q50,10 65,15 Q80,20 80,40 Q80,60 50,85 Z"
+                            fill="#DC143C"
+                            stroke="#D4AF37"
+                            stroke-width="2"/>
+                        <circle cx="50" cy="45" r="5" fill="#FFD700"/>
+                        <circle cx="40" cy="38" r="3" fill="#FFD700"/>
+                        <circle cx="60" cy="38" r="3" fill="#FFD700"/>
+                    </svg>
+                </div>
+
+                <img src="flower_images/mango-flowered-garland.png"
+                    alt="Mango Flowered Garland"
+                    class="couple-garland-img couple-garland-bottom">
+            </div>
+
+            <!-- Bride -->
+            <div class="couple-card reveal-right">
+                <div class="coconut-decor"><img src="banana-bride.png" alt="🥥"></div>
+
+                <div class="couple-card-header">
+                    <h3 class="couple-role" data-i18n="bride_role">
+                        The Bride
+                    </h3>
+                </div>
+
+                <h3 class="couple-name" data-i18n="bride_name">
+                    Navya Sri Lalitha
+                </h3>
+
+                <div class="couple-gotra-badge">
+                    <img src="bharadwaja.png" alt="Bharadwaja Maharshi" class="couple-gotra-img">
+
+                    <span class="couple-gotra-text" data-i18n="bride_gotra">
+                        Bharadwaja Gotram
+                    </span>
+                </div>
+
+                <div class="parents-info">
+                    <p class="parents-label" data-i18n="daughter_of">
+                        Daughter of
+                    </p>
+
+                    <p class="parent-name" data-i18n="bride_father">
+                        Dr. Sushruth Kumar
+                    </p>
+
+                    <p class="parent-connector">&</p>
+
+                    <p class="parent-name" data-i18n="bride_mother">
+                        Smt. SriDevi
+                    </p>
+                </div>
+
+                <div class="marigold-divider">
+                    <span>❀</span><span>❀</span><span>❀</span>
+                </div>
+            </div>
+
+        </div>
         </div>
     </section>
 
@@ -516,143 +666,159 @@
                 <h2 class="section-title" data-i18n="rituals_title">Sacred Rituals</h2>
                 <p class="section-subtitle" data-i18n="rituals_subtitle">The divine ceremonies of our wedding</p>
             </div>
-
             <div class="rituals-timeline">
                 <div class="timeline-line"></div>
 
+                <!-- 1 -->
                 <div class="ritual-item reveal-left">
                     <div class="ritual-number">1</div>
                     <div class="ritual-content">
-                        <h3>Samaa Varthanamu</h3>
-                        <p>The sacred ritual of purification, preparing the couple for the divine union ahead.</p>
+                        <h3 data-i18n="ritual_1_title">Samaa Varthanamu</h3>
+                        <p data-i18n="ritual_1_desc"></p>
                     </div>
                 </div>
 
+                <!-- 2 -->
                 <div class="ritual-item reveal-right">
                     <div class="ritual-number">2</div>
                     <div class="ritual-content">
-                        <h3>Kaasi Yaatra</h3>
-                        <p>The groom pretends to leave for Kashi (Varanasi) for ascetic life, but is persuaded by the bride's father to embrace married life.</p>
+                        <h3 data-i18n="ritual_2_title">Kaasi Yaatra</h3>
+                        <p data-i18n="ritual_2_desc"></p>
                     </div>
                 </div>
 
+                <!-- 3 -->
                 <div class="ritual-item reveal-left">
                     <div class="ritual-number">3</div>
                     <div class="ritual-content">
-                        <h3>Vivaaha Deeksha Sweekaranam</h3>
-                        <p>The formal acceptance of the marriage vow, marking the couple's commitment to the sacred bond.</p>
+                        <h3 data-i18n="ritual_3_title">Vivaaha Deeksha Sweekaranam</h3>
+                        <p data-i18n="ritual_3_desc"></p>
                     </div>
                 </div>
 
+                <!-- 4 -->
                 <div class="ritual-item reveal-right">
                     <div class="ritual-number">4</div>
                     <div class="ritual-content">
-                        <h3>Yognopaveetha Dhaaranam</h3>
-                        <p>The sacred thread ceremony, symbolizing spiritual readiness and divine blessings.</p>
+                        <h3 data-i18n="ritual_4_title">Yagnopaveetha Dhaaranam</h3>
+                        <p data-i18n="ritual_4_desc"></p>
                     </div>
                 </div>
 
+                <!-- 5 -->
                 <div class="ritual-item reveal-left">
                     <div class="ritual-number">5</div>
                     <div class="ritual-content">
-                        <h3>Gruhasthaasrama Pramaanam Sweekaranam</h3>
-                        <p>Accepting the responsibilities and joys of Gruhasthaasramam — the householder's life.</p>
+                        <h3 data-i18n="ritual_5_title">Gruhasthaasrama Pramaanam Sweekaranam</h3>
+                        <p data-i18n="ritual_5_desc"></p>
                     </div>
                 </div>
 
+                <!-- 6 -->
                 <div class="ritual-item reveal-right">
                     <div class="ritual-number">6</div>
                     <div class="ritual-content">
-                        <h3>Kanya Varanam</h3>
-                        <p>The groom formally seeks the bride's hand, a beautiful moment of consent and acceptance.</p>
+                        <h3 data-i18n="ritual_6_title">Kanya Varanam</h3>
+                        <p data-i18n="ritual_6_desc"></p>
                     </div>
                 </div>
 
+                <!-- 7 -->
                 <div class="ritual-item reveal-left">
                     <div class="ritual-number">7</div>
                     <div class="ritual-content">
-                        <h3>Vara Pooja</h3>
-                        <p>The bride's family worships the groom, honoring him as Lord Vishnu himself.</p>
+                        <h3 data-i18n="ritual_7_title">Vara Pooja</h3>
+                        <p data-i18n="ritual_7_desc"></p>
                     </div>
                 </div>
 
+                <!-- 8 -->
                 <div class="ritual-item reveal-right">
                     <div class="ritual-number">8</div>
                     <div class="ritual-content">
-                        <h3>Kaallu Kaduguta</h3>
-                        <p>The sacred washing of the groom's feet by the bride's parents as a mark of respect.</p>
+                        <h3 data-i18n="ritual_8_title">Kaallu Kaduguta</h3>
+                        <p data-i18n="ritual_8_desc"></p>
                     </div>
                 </div>
 
+                <!-- 9 -->
                 <div class="ritual-item reveal-left">
                     <div class="ritual-number">9</div>
                     <div class="ritual-content">
-                        <h3>Kanyadhaanam</h3>
-                        <p>The most sacred moment — the bride's parents give their daughter's hand, the greatest of all gifts.</p>
+                        <h3 data-i18n="ritual_9_title">Kanyadhaanam</h3>
+                        <p data-i18n="ritual_9_desc"></p>
                     </div>
                 </div>
 
+                <!-- 10 -->
                 <div class="ritual-item reveal-right">
                     <div class="ritual-number">10</div>
                     <div class="ritual-content">
-                        <h3>MadhuParkamu</h3>
-                        <p>Offering a sacred mixture of honey and curd to the groom, symbolizing sweetness in married life.</p>
+                        <h3 data-i18n="ritual_10_title">Madhuparkam</h3>
+                        <p data-i18n="ritual_10_desc"></p>
                     </div>
                 </div>
 
+                <!-- 11 -->
                 <div class="ritual-item reveal-left">
                     <div class="ritual-number">11</div>
                     <div class="ritual-content">
-                        <h3>MaangalyaDhaaranam</h3>
-                        <p>The most auspicious moment — tying the sacred Mangalsutra, the eternal bond of marriage.</p>
+                        <h3 data-i18n="ritual_11_title">Maangalya Dhaaranam</h3>
+                        <p data-i18n="ritual_11_desc"></p>
                     </div>
                 </div>
 
+                <!-- 12 -->
                 <div class="ritual-item reveal-right">
                     <div class="ritual-number">12</div>
                     <div class="ritual-content">
-                        <h3>Akshathaaropanamu</h3>
-                        <p>Showering the couple with sacred rice and turmeric, blessing them with prosperity.</p>
+                        <h3 data-i18n="ritual_12_title">Akshathaaropanamu</h3>
+                        <p data-i18n="ritual_12_desc"></p>
                     </div>
                 </div>
 
+                <!-- 13 -->
                 <div class="ritual-item reveal-left">
                     <div class="ritual-number">13</div>
                     <div class="ritual-content">
-                        <h3>Bramhamudi</h3>
-                        <p>Tying the sacred knot — the garments of the bride and groom are tied together, symbolizing their inseparable union.</p>
+                        <h3 data-i18n="ritual_13_title">Brahmamudi</h3>
+                        <p data-i18n="ritual_13_desc"></p>
                     </div>
                 </div>
 
+                <!-- 14 -->
                 <div class="ritual-item reveal-right">
                     <div class="ritual-number">14</div>
                     <div class="ritual-content">
-                        <h3>Homamu</h3>
-                        <p>The sacred fire ritual — offerings are made to Agni Dev, the divine witness of the marriage.</p>
+                        <h3 data-i18n="ritual_14_title">Homamu</h3>
+                        <p data-i18n="ritual_14_desc"></p>
                     </div>
                 </div>
 
+                <!-- 15 -->
                 <div class="ritual-item reveal-left">
                     <div class="ritual-number">15</div>
                     <div class="ritual-content">
-                        <h3>PaaniGrahanamu</h3>
-                        <p>The groom holds the bride's hand, promising to walk through life together.</p>
+                        <h3 data-i18n="ritual_15_title">Paani Grahanamu</h3>
+                        <p data-i18n="ritual_15_desc"></p>
                     </div>
                 </div>
 
+                <!-- 16 -->
                 <div class="ritual-item reveal-right">
                     <div class="ritual-number">16</div>
                     <div class="ritual-content">
-                        <h3>Saptapadhi</h3>
-                        <p>The seven sacred steps around the holy fire — each step a vow, each vow a lifetime promise.</p>
+                        <h3 data-i18n="ritual_16_title">Saptapadhi</h3>
+                        <p data-i18n="ritual_16_desc"></p>
                     </div>
                 </div>
 
+                <!-- 17 -->
                 <div class="ritual-item reveal-left">
                     <div class="ritual-number">17</div>
                     <div class="ritual-content">
-                        <h3>Nakshatra Dharsanam</h3>
-                        <p>Viewing the Arundhati star together — symbolizing eternal devotion and fidelity, like the star that never fades.</p>
+                        <h3 data-i18n="ritual_17_title">Nakshatra Darshanam</h3>
+                        <p data-i18n="ritual_17_desc"></p>
                     </div>
                 </div>
             </div>
@@ -861,27 +1027,52 @@
 
                 <!-- Family Details Grid -->
                 <div class="rsvp-families">
-                    <!-- Groom's Family -->
-                    <div class="rsvp-family-card">
-                        <div class="rsvp-family-header">
-                            <span class="rsvp-family-icon">🪷</span>
-                            <h4 class="rsvp-family-title">Vara Pakshamu</h4>
-                            <p class="rsvp-family-subtitle">(Groom's Side)</p>
-                        </div>
-                        <div class="rsvp-family-members">
-                            <div class="rsvp-member-group">
-                                <p class="rsvp-member-role">Grand Parents</p>
-                                <p class="rsvp-member-name">Sri Yamana Rao</p>
-                                <p class="rsvp-member-connector">&</p>
-                                <p class="rsvp-member-name">Smt. Nagamani</p>
-                            </div>
-                            <div class="rsvp-member-divider">❀</div>
-                            <div class="rsvp-member-group">
-                                <p class="rsvp-member-role">Sister</p>
-                                <p class="rsvp-member-name">Chi. Medini</p>
-                            </div>
-                        </div>
+                <!-- Groom's Family -->
+                <div class="rsvp-family-card">
+                    <div class="rsvp-family-header">
+                        <span class="rsvp-family-icon">🪷</span>
+
+                        <h4 class="rsvp-family-title" data-i18n="vara_paksham">
+                            Vara Pakshamu
+                        </h4>
+
+                        <p class="rsvp-family-subtitle" data-i18n="groom_side">
+                            (Groom's Side)
+                        </p>
                     </div>
+
+                    <div class="rsvp-family-members">
+
+                        <div class="rsvp-member-group">
+                            <p class="rsvp-member-role" data-i18n="grand_parents">
+                                Grand Parents
+                            </p>
+
+                            <p class="rsvp-member-name" data-i18n="groom_grandfather">
+                                Sri Yamana Rao
+                            </p>
+
+                            <p class="rsvp-member-connector">&</p>
+
+                            <p class="rsvp-member-name" data-i18n="groom_grandmother">
+                                Smt. Nagamani
+                            </p>
+                        </div>
+
+                        <div class="rsvp-member-divider">❀</div>
+
+                        <div class="rsvp-member-group">
+                            <p class="rsvp-member-role" data-i18n="sister">
+                                Sister
+                            </p>
+
+                            <p class="rsvp-member-name" data-i18n="groom_sister">
+                                Kumaari. Medini
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
 
                     <!-- Center Divider -->
                     <div class="rsvp-families-center">
@@ -890,33 +1081,68 @@
                         <div class="rsvp-center-line"></div>
                     </div>
 
-                    <!-- Bride's Family -->
-                    <div class="rsvp-family-card">
-                        <div class="rsvp-family-header">
-                            <span class="rsvp-family-icon">🌺</span>
-                            <h4 class="rsvp-family-title">Kanya Pakshamu</h4>
-                            <p class="rsvp-family-subtitle">(Bride's Side)</p>
-                        </div>
-                        <div class="rsvp-family-members">
-                            <div class="rsvp-member-group">
-                                <p class="rsvp-member-role">Grand Parents</p>
-                                <p class="rsvp-member-name">Sri Sreehari</p>
-                                <p class="rsvp-member-connector">&</p>
-                                <p class="rsvp-member-name">Smt. Ramadevi</p>
-                            </div>
-                            <div class="rsvp-member-divider">❀</div>
-                            <div class="rsvp-member-group">
-                                <p class="rsvp-member-role">Brother & Wife</p>
-                                <p class="rsvp-member-name">Sri Ganesh</p>
-                                <p class="rsvp-member-connector">&</p>
-                                <p class="rsvp-member-name">Smt. Sivaani</p>
-                            </div>
-                        </div>
+                <!-- Bride's Family -->
+                <div class="rsvp-family-card">
+                    <div class="rsvp-family-header">
+                        <span class="rsvp-family-icon">🌺</span>
+
+                        <h4 class="rsvp-family-title" data-i18n="kanya_paksham">
+                            Kanya Pakshamu
+                        </h4>
+
+                        <p class="rsvp-family-subtitle" data-i18n="bride_side">
+                            (Bride's Side)
+                        </p>
                     </div>
+
+                    <div class="rsvp-family-members">
+
+                        <div class="rsvp-member-group">
+
+                            <p class="rsvp-member-role" data-i18n="grand_parents">
+                                Grand Parents
+                            </p>
+
+                            <p class="rsvp-member-name" data-i18n="bride_grandfather">
+                                Sri Sreehari
+                            </p>
+
+                            <p class="rsvp-member-connector">&</p>
+
+                            <p class="rsvp-member-name" data-i18n="bride_grandmother">
+                                Smt. Ramadevi
+                            </p>
+
+                        </div>
+
+                        <div class="rsvp-member-divider">❀</div>
+
+                        <div class="rsvp-member-group">
+
+                            <p class="rsvp-member-role" data-i18n="brother_wife">
+                                Brother & Wife
+                            </p>
+
+                            <p class="rsvp-member-name" data-i18n="bride_brother">
+                                Sri Ganesh
+                            </p>
+
+                            <p class="rsvp-member-connector">&</p>
+
+                            <p class="rsvp-member-name" data-i18n="bride_sister_in_law">
+                                Smt. Sivaani
+                            </p>
+
+                        </div>
+
+                    </div>
+                </div>
                 </div>
 
                 <div class="rsvp-blessing">
-                    <p>॥ సర్వే జనాః సుఖినో భవంతు ॥</p>
+                    <p data-i18n="universal_blessing">
+                        ॥ सर्वे जनाः सुखिनो भवन्तु ॥
+                    </p>
                     <p class="blessing-translation" data-i18n="blessing_translation">May all beings be happy</p>
                 </div>
                 <div class="rsvp-card-diya-bottom">🪔</div>
@@ -968,8 +1194,8 @@
         <div class="footer-guru-section">
             <div class="guru-aura-ring"></div>
             <div class="guru-aura-ring guru-aura-ring-2"></div>
-            <p class="guru-label">॥ గురు దేవో భవ ॥</p>
-            <p class="guru-label-sub">Guru Devo Bhava</p>
+            <p class="guru-label">॥ Ekkiraala Bharadwaja - Sai Master (IAS)॥</p>
+            <p class="guru-label-sub">Balam Guro Pravarthathaam - Jai Sai Master</p>
             <div class="guru-image-outer">
                 <div class="guru-image-frame">
                     <img src="Masters.png" alt="Our Guruji" class="guru-img">
@@ -1020,5 +1246,21 @@
     </button>
 
     <script src="script.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+ const observer=new IntersectionObserver((entries)=>{
+   entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add("active");
+      }
+   });
+ },{threshold:0.15});
+
+ document.querySelectorAll('.reveal,.reveal-up,.reveal-left,.reveal-right')
+ .forEach(el=>observer.observe(el));
+});
+</script>
 </body>
+
 </html>
