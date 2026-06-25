@@ -3,6 +3,14 @@
    Animations, Countdown, Interactions
    ========================================== */
 
+// ===== FORCE START FROM TOP - IMMEDIATE =====
+// Disable browser scroll restoration before anything else
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+// Immediate scroll to top (works even before DOM is ready)
+window.scrollTo(0, 0);
+
 // ===== TRANSLATIONS =====
 const translations = {
     en: {
@@ -20,11 +28,11 @@ const translations = {
         details_title: 'Wedding Details',
         details_subtitle: 'Save the auspicious date',
         detail_date_title: 'Wedding Date',
-        detail_date_text: 'November 11, 2026',
-        detail_date_sub: 'Wednesday (Budhavaaram)',
+        detail_date_text: 'August 16-17, 2026',
+        detail_date_sub: 'Sunday Night (Aadivaaram)',
         detail_time_title: 'Muhurtham Time',
-        detail_time_text: '6:50 AM – 8:50 AM',
-        detail_time_sub: 'Anuradha Nakshatra · Puskaramsa 7:20 AM',
+        detail_time_text: '11:30 PM – 1:15 AM',
+        detail_time_sub: 'Hasta Nakshatra · Pushkara Kala 12:21 AM – 12:25 AM',
         detail_venue_title: 'Venue',
         detail_venue_text: 'Nedurumalli Subbiraami Reddy Kalaa Bhavan (NBKR) Kalyana Mandapam',
         detail_venue_sub: 'Vidyanagar, Nellore District',
@@ -39,12 +47,12 @@ const translations = {
         venue_feat1: '🪔 Sacred Fire Altar',
         venue_feat2: '🌺 Flower Decorated',
         venue_feat3: '🎵 Nadaswaram',
-        hero_date: 'November 11, 2026 | Wednesday',
-        hero_nakshatra: 'Kaartheeka Maasam • Sukla Paksha Vidhiya • Budhavaaram',
+        hero_date: 'August 16-17, 2026 | Sunday Night',
+        hero_nakshatra: 'Shravana Maasam • Shukla Paksha Panchami • Aadivaaram',
         sumuhurtam_title: 'Sumuhurtam',
-        sumuhurtam_text: 'Parabhava Nama Samvathsaram, Karthika Maasam, Sukla Paksha Vidhiya',
-        sumuhurtam_time: '6:50 AM – 8:50 AM',
-        sumuhurtam_nakshatra: 'Anuradha Nakshatra • Vruschika Lagna • Puskaramsa 7:20 AM',
+        sumuhurtam_text: 'Parabhava Nama Samvathsaram, Shravana Maasam, Shukla Paksha Panchami',
+        sumuhurtam_time: '11:30 PM – 1:15 AM',
+        sumuhurtam_nakshatra: 'Hasta Nakshatra • Vrushabha Lagna • Pushkara Kala 12:21 AM – 12:25 AM',
         rsvp_title: "Welcoming",
 
         rsvp_subtitle: "Kindly honour us with your gracious presence",
@@ -65,7 +73,7 @@ const translations = {
         groom_grandfather: "Sri Yamana Rao",
         groom_grandmother: "Smt. Nagamani",
 
-        groom_sister: "Chi. Medini",
+        groom_sister: "Chi. Rajeswari Medini",
 
         bride_grandfather: "Sri Sreehari",
         bride_grandmother: "Smt. Ramadevi",
@@ -77,7 +85,7 @@ const translations = {
         rsvp_contact_label: 'Kaarya Nirvahakulu (Grand Parents)',
         blessing_translation: 'May all beings be happy',
         visitor_label: 'Blessings Received',
-        visitor_sublabel: 'People have visited & blessed this invitation',
+        visitor_sublabel: 'Unique visitors who opened this invitation',
         footer_text: 'With Love & Blessings 🙏',
         nav_home: 'Home', nav_couple: 'Couple', nav_details: 'Details',
         nav_rituals: 'Rituals', nav_venue: 'Venue', nav_rsvp: 'RSVP',
@@ -85,8 +93,8 @@ const translations = {
         groom_role: "The Groom",
         bride_role: "The Bride",
 
-        groom_name: "Venkata Abhilash Kumar",
-        bride_name: "Navya Sri Lalitha",
+        groom_name: "Panganaamala Venkata Abhilash Kumar",
+        bride_name: "Sola Navya Sri Lalitha",
 
         groom_gotra: "Kasyapasa Gotram",
         bride_gotra: "Bharadwajasa Gotram",
@@ -94,13 +102,24 @@ const translations = {
         son_of: "Son of",
         daughter_of: "Daughter of",
 
-        groom_father: "Sri Venkata Sarath Kumar",
-        groom_mother: "Smt. Swarna Lakshmi",
+        groom_father: "Sri Panganaamala Venkata Sarath Kumar",
+        groom_mother: "Smt. Panganaamala Swarna Lakshmi",
+        groom_grandfather: "Sri Panganaamala Yamana Rao",
+        groom_grandmother: "Smt. Panganaamala Nagamani",
 
-        bride_father: "Dr. Sushruth Kumar",
-        bride_mother: "Smt. SriDevi",
+        bride_father: "Dr. Sola Sushruth Kumar",
+        bride_mother: "Smt. Sola SriDevi",
+        bride_grandfather: "Sri Sola Sreehari",
+        bride_grandmother: "Smt. Sola Ramadevi",
         gotra_subheading: "Ancestral Heritage",
+        uncle_aunt: "Uncle & Aunt",
+        younger_brother: "Brother",
+        bride_second_brother: "Chi. Abhiram",
 
+        groom_uncle: "Sri Panganaamala Kishore Kumar",
+        groom_aunt: "Smt. Panganaamala Sravani Kumari",
+        grand_son_of: "Grand Son of",
+        grand_daughter_of: "Grand Daughter of",
         groom_rishi_name: "Kasyapa Prajapati",
         groom_gotra_label: "Groom's Gotram",
         groom_gotra_name: "Kasyapasa Gotram",
@@ -148,39 +167,49 @@ const translations = {
     te: {
         ganesh_prayer: '॥ ఓం శ్రీ గణేశాయ నమః ॥',
         ramanuja_prayer: '॥ ఓం శ్రీ హనుమతే నమః ॥',
-        tagline: 'వివాహ క్రతువు',
+        tagline: 'వివాహ వేడుక',
         couple_title: 'వధూవరులు',
         couple_subtitle: 'రెండు ఆత్మలు, ఒక ప్రయాణం',
         
-        groom_name: 'వెంకట అభిలాష్ కుమార్',
+        groom_name: 'పంగనామల వెంకట అభిలాష్ కుమార్',
         son_of: 'తనయుడు',
         groom_role: "వరుడు",
         bride_role: "వధువు",
+        grand_son_of: "మనవడు",
+        grand_daughter_of: "మనవరాలు",
 
-        groom_name: "వెంకట అభిలాష్ కుమార్",
-        bride_name: "నవ్య శ్రీ లలిత",
+        groom_name: "పంగనామల వెంకట అభిలాష్ కుమార్",
+        bride_name: "సోలా నవ్య శ్రీ లలిత",
+        groom_grandfather: "శ్రీ పంగనామల యమానారావు",
+        groom_grandmother: "శ్రీమతి పంగనామల నాగమణి",
 
+        bride_grandfather: "శ్రీ సోలా శ్రీహరి",
+        bride_grandmother: "శ్రీమతి సోలా రామాదేవి",
+        uncle_aunt: "బాబాయి & పిన్ని",
+
+        groom_uncle: "శ్రీ పంగనామాల కిషోర్ కుమార్",
+        groom_aunt: "శ్రీమతి పంగనామాల శ్రావణి కుమారి",
         groom_gotra: "కశ్యప గోత్రం",
         bride_gotra: "భరద్వాజ గోత్రం",
 
         son_of: "కుమారుడు",
         daughter_of: "కుమార్తె",
 
-        groom_father: "శ్రీ వెంకట శరత్ కుమార్",
-        groom_mother: "శ్రీమతి స్వర్ణ లక్ష్మి",
+        groom_father: "శ్రీ పంగనామల వెంకట శరత్ కుమార్",
+        groom_mother: "శ్రీమతి పంగనామల స్వర్ణ లక్ష్మి",
 
-        bride_father: "డాక్టర్ సుశ్రుత్ కుమార్",
-        bride_mother: "శ్రీమతి శ్రీదేవి",
-        bride_name: 'నవ్య శ్రీ లలిత',
+        bride_father: "డాక్టర్ సోలా సుశ్రుత్ కుమార్",
+        bride_mother: "శ్రీమతి సోలా శ్రీదేవి",
+        bride_name: 'సోలా నవ్య శ్రీ లలిత',
         daughter_of: 'తనయ',
         details_title: 'వివాహ వివరాలు',
         details_subtitle: 'శుభ ముహూర్తం గుర్తుంచుకోండి',
         detail_date_title: 'వివాహ తేదీ',
-        detail_date_text: 'నవంబర్ 11, 2026',
-        detail_date_sub: 'బుధవారం',
+        detail_date_text: 'ఆగష్టు 16-17, 2026',
+        detail_date_sub: 'ఆదివారం రాత్రి',
         detail_time_title: 'ముహూర్తం సమయం',
-        detail_time_text: 'ఉదయం 6:50 – 8:50',
-        detail_time_sub: 'అనురాధ నక్షత్రం · పుష్కరాంశం 7:20',
+        detail_time_text: 'రాత్రి 11:30 – తెల్లవారితే 1:15',
+        detail_time_sub: 'హస్తా నక్షత్రం · పుష్కర కాలం 12:21 – 12:25',
         detail_venue_title: 'వేదిక',
         detail_venue_text: 'నేదురుమల్లి సుబ్బిరామి రెడ్డి కళా భవన్ (NBKR) కళ్యాణ మండపం',
         detail_venue_sub: 'విద్యానగర్, నెల్లూరు జిల్లా',
@@ -205,14 +234,14 @@ const translations = {
         venue_feat1: '🪔 పవిత్ర అగ్ని వేదిక',
         venue_feat2: '🌺 పుష్ప అలంకారం',
         venue_feat3: '🎵 నాదస్వరం',
-        hero_date: 'నవంబర్ 11, 2026 | బుధవారం',
-        hero_nakshatra: 'కార్తీక మాసం • శుక్ల పక్ష విదియ • బుధవారం',
+        hero_date: 'ఆగష్టు 16-17, 2026 | ఆదివారం రాత్రి',
+        hero_nakshatra: 'శ్రావణ మాసం • శుద్ధ పంచమి • ఆదివారం',
         sumuhurtam_title: 'సుముహూర్తం',
         universal_blessing: "॥ సర్వే జనాః సుఖినో భవంతు ॥",
 
-        sumuhurtam_text: 'పరాభవ నామ సంవత్సరం, కార్తీక మాసం, శుక్ల పక్ష విదియ',
-        sumuhurtam_time: 'ఉదయం 6:50 – 8:50',
-        sumuhurtam_nakshatra: 'అనురాధ నక్షత్రం • వృశ్చిక లగ్నం • పుష్కరాంశం 7:20',
+        sumuhurtam_text: 'పరాభవ నామ సంవత్సరం, శ్రావణ మాసం, శుద్ధ పంచమి',
+        sumuhurtam_time: 'రాత్రి 11:30 – తెల్లవారితే 1:15',
+        sumuhurtam_nakshatra: 'హస్తా నక్షత్రం • వృషభ లగ్నం • పుష్కర కాలం 12:21 – 12:25',
         rsvp_title: "ఆహ్వానం",
 
         rsvp_subtitle: "మీ సాన్నిధ్యంతో మా శుభకార్యాన్ని విజయవంతం చేయండి",
@@ -230,21 +259,25 @@ const translations = {
         sister: "సోదరి",
         brother_wife: "సోదరుడు & వదిన",
 
-        groom_grandfather: "శ్రీ యమనారావు",
-        groom_grandmother: "శ్రీమతి నాగమణి",
+        groom_grandfather: "శ్రీ పంగనామల యమానారావు",
+        groom_grandmother: "శ్రీమతి పంగనామల నాగమణి",
 
-        groom_sister: "చి. మేధిని",
+        groom_sister: "చి. రాజేశ్వరి మేధిని",        
 
-        bride_grandfather: "శ్రీ శ్రీహరి",
-        bride_grandmother: "శ్రీమతి రామాదేవి",
+        bride_grandfather: "శ్రీ సోలా శ్రీహరి",
+        bride_grandmother: "శ్రీమతి సోలా రామాదేవి",
 
-        bride_brother: "శ్రీ గణేష్",
-        bride_sister_in_law: "శ్రీమతి శివాని",
+        bride_brother: "శ్రీ సోలా గణేష్",
+        bride_sister_in_law: "శ్రీమతి సోలా శివాని",
+
+        younger_brother: "సోదరుడు",
+
+        bride_second_brother: "చి. అభిరామ్",
 
         blessing_translation: "సమస్త ప్రజలు సుఖసంతోషాలతో ఉండుగాక",
         blessing_translation: 'అందరికీ సుఖము కలుగు గాక',
         visitor_label: 'ఆశీర్వాదాలు అందాయి',
-        visitor_sublabel: 'మంది ఈ ఆహ్వాన పత్రికను సందర్శించి ఆశీర్వదించారు',
+        visitor_sublabel: 'మంది ఈ ఆహ్వాన పత్రికను తెరిచి ఆశీర్వదించారు',
         footer_text: 'ప్రేమతో & ఆశీర్వాదాలతో 🙏',
         nav_home: 'గ్రుహమ్', nav_couple: 'వధూవరులు', nav_details: 'వివరాలు',
         nav_rituals: 'ఆచారాలు', nav_venue: 'మండపం', nav_rsvp: 'ఆహ్వానం',
@@ -299,9 +332,15 @@ const translations = {
 
         groom_gotra: "कश्यपगोत्रम्",
         bride_gotra: "भरद्वाजगोत्रम्",
+        grand_son_of: "पौत्रः",
+        grand_daughter_of: "पौत्री",
 
         son_of: "पुत्रः",
         daughter_of: "पुत्री",
+        uncle_aunt: "पितृव्यः तथा पितृव्यपत्नी",
+
+        groom_uncle: "श्री पङ्गनामाल किशोरकुमारः",
+        groom_aunt: "श्रीमती पङ्गनामाल श्रावणीकुमारी",
 
         groom_father: "श्री वेङ्कट शरथकुमारः",
         groom_mother: "श्रीमती स्वर्णलक्ष्मी",
@@ -311,7 +350,9 @@ const translations = {
         groom_rishi_name: "कश्यपमहर्षिः",
         groom_gotra_label: "वरस्य गोत्रम्",
         groom_gotra_name: "कश्यपगोत्रम्",
+        younger_brother: "भ्राता",
 
+        bride_second_brother: "अभिरामः",
         bride_rishi_name: "भरद्वाजमहर्षिः",
         bride_gotra_label: "वध्वाः गोत्रम्",
         bride_gotra_name: "भरद्वाजगोत्रम्",
@@ -327,11 +368,11 @@ const translations = {
         details_title: 'विवाहविवरणम्',
         details_subtitle: 'शुभमुहूर्तं स्मरत',
         detail_date_title: 'विवाहदिनम्',
-        detail_date_text: 'नवम्बर् 11, 2026',
-        detail_date_sub: 'बुधवासरः',
+        detail_date_text: 'आगष्ट् 16-17, 2026',
+        detail_date_sub: 'रविवासरः रात्रौ',
         detail_time_title: 'मुहूर्तसमयः',
-        detail_time_text: 'प्रातः 6:50 – 8:50',
-        detail_time_sub: 'अनुराधानक्षत्रम् · पुष्करांशः 7:20',
+        detail_time_text: 'रात्रौ 11:30 – 1:15',
+        detail_time_sub: 'हस्तानक्षत्रम् · पुष्करकालः 12:21 – 12:25',
         detail_venue_title: 'स्थानम्',
         detail_venue_text: 'नेदुरुमल्ली सुब्बिरामी रेड्डी कला भवन (NBKR) कल्याणमण्डपम्',
         detail_venue_sub: 'विद्यानगरम्, नेल्लूरु',
@@ -346,12 +387,12 @@ const translations = {
         venue_feat1: '🪔 पवित्राग्निवेदिका',
         venue_feat2: '🌺 पुष्पालङ्कारः',
         venue_feat3: '🎵 नादस्वरम्',
-        hero_date: 'नवम्बर् 11, 2026 | बुधवासरः',
-        hero_nakshatra: 'कार्तिकमासः • शुक्लपक्षद्वितीया • बुधवासरः',
+        hero_date: 'आगष्ट् 16-17, 2026 | रविवासरः रात्रौ',
+        hero_nakshatra: 'श्रावणमासः • शुक्लपक्षपञ्चमी • रविवासरः',
         sumuhurtam_title: 'सुमुहूर्तम्',
-        sumuhurtam_text: 'पराभवनामसंवत्सरः, कार्तिकमासः, शुक्लपक्षद्वितीया',
-        sumuhurtam_time: 'प्रातः 6:50 – 8:50',
-        sumuhurtam_nakshatra: 'अनुराधानक्षत्रम् • वृश्चिकलग्नम् • पुष्करांशः 7:20',
+        sumuhurtam_text: 'पराभवनामसंवत्सरः, श्रावणमासः, शुक्लपक्षपञ्चमी',
+        sumuhurtam_time: 'रात्रौ 11:30 – 1:15',
+        sumuhurtam_nakshatra: 'हस्तानक्षत्रम् • वृषभलग्नम् • पुष्करकालः 12:21 – 12:25',
         rsvp_title: "आमन्त्रणम्",
 
         rsvp_subtitle: "भवतः सस्नेहसन्निध्या अस्माकं विवाहमहोत्सवः शोभां प्राप्नुयात्",
@@ -372,7 +413,7 @@ const translations = {
         groom_grandfather: "श्री यमनारावः",
         groom_grandmother: "श्रीमती नागमणिः",
 
-        groom_sister: "मेधिनी",
+        groom_sister: "राजेश्वरी मेधिनी",
 
         bride_grandfather: "श्री श्रीहरिः",
         bride_grandmother: "श्रीमती रामादेवी",
@@ -521,6 +562,14 @@ function revealMap() {
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    // ===== FORCE SCROLL TO TOP ON PAGE LOAD/REFRESH =====
+    // Prevent browser from restoring scroll position
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+    // Force immediate scroll to top
+    window.scrollTo(0, 0);
+
     // ===== PRELOADER =====
     const preloader = document.getElementById('preloader');
     const langOverlay = document.getElementById('langDialogOverlay');
@@ -590,7 +639,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ===== COUNTDOWN TIMER =====
-    const weddingDate = new Date('November 11, 2026 06:50:00').getTime();
+    const weddingDate = new Date('August 16, 2026 23:30:00').getTime();
 
     function updateCountdown() {
         const now = new Date().getTime();
@@ -850,44 +899,69 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // ===== VISITOR COUNTER (Unique IP-based) =====
+    // ===== RESET SCROLL POSITION ON PAGE UNLOAD =====
+    // Ensures the page always starts from top on next load
+    window.addEventListener('beforeunload', () => {
+        window.scrollTo(0, 0);
+    });
+
+    // ===== VISITOR COUNTER (Unique UUID-based, shared count via CountAPI) =====
     function initVisitorCounter() {
-        // Fetch visitor's IP and track unique visits
-        fetch('https://api.ipify.org?format=json')
-            .then(res => res.json())
-            .then(data => {
-                const ip = data.ip;
-                const visitorsJson = localStorage.getItem('weddingVisitors') || '{}';
-                const visitors = JSON.parse(visitorsJson);
+        // Generate or retrieve a persistent UUID for this browser/device
+        let visitorId = localStorage.getItem('weddingVisitorId');
+        const isNewVisitor = !visitorId;
 
-                if (!visitors[ip]) {
-                    visitors[ip] = Date.now();
-                    localStorage.setItem('weddingVisitors', JSON.stringify(visitors));
-                }
-
-                const uniqueCount = Object.keys(visitors).length;
-                const displayCount = uniqueCount + 1247;
-                updateVisitorDisplay(displayCount);
-            })
-            .catch(() => {
-                // Fallback if IP fetch fails - use session-based counting
-                let count = parseInt(localStorage.getItem('weddingVisitorCount') || '0', 10);
-                const sessionKey = 'weddingVisited_' + new Date().toDateString();
-                if (!sessionStorage.getItem(sessionKey)) {
-                    count += 1;
-                    localStorage.setItem('weddingVisitorCount', count.toString());
-                    sessionStorage.setItem(sessionKey, 'true');
-                }
-                const displayCount = count + 1247;
-                updateVisitorDisplay(displayCount);
+        if (isNewVisitor) {
+            // Create a new UUID for this visitor
+            visitorId = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                const r = Math.random() * 16 | 0;
+                const v = c === 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
             });
+            localStorage.setItem('weddingVisitorId', visitorId);
+        }
+
+        const NAMESPACE = 'abhi-navya-wedding-2026';
+        const KEY       = 'unique-visitors';
+
+        if (isNewVisitor) {
+            // New visitor — increment the shared counter, then display
+            fetch(`https://api.countapi.xyz/hit/${NAMESPACE}/${KEY}`)
+                .then(res => res.json())
+                .then(data => {
+                    // data.value is 1-based; display as 0-based visitor ID (first visitor = 0)
+                    const displayId = data.value - 1;
+                    updateVisitorDisplay(displayId);
+                })
+                .catch(() => fallbackCounter(isNewVisitor));
+        } else {
+            // Returning visitor — just read the current count (no increment)
+            fetch(`https://api.countapi.xyz/get/${NAMESPACE}/${KEY}`)
+                .then(res => res.json())
+                .then(data => {
+                    const displayId = Math.max(0, data.value - 1);
+                    updateVisitorDisplay(displayId);
+                })
+                .catch(() => fallbackCounter(isNewVisitor));
+        }
+    }
+
+    // Fallback when CountAPI is unreachable — use localStorage-only counting
+    function fallbackCounter(isNewVisitor) {
+        let count = parseInt(localStorage.getItem('weddingVisitorFallbackCount') || '0', 10);
+        if (isNewVisitor) {
+            count += 1;
+            localStorage.setItem('weddingVisitorFallbackCount', count.toString());
+        }
+        updateVisitorDisplay(count - 1); // 0-based
     }
 
     function updateVisitorDisplay(count) {
         const digits = document.querySelectorAll('.visitor-digit');
-        const countStr = String(count).padStart(4, '0');
+        // Pad to match however many digit spans exist (4 by default)
+        const countStr = String(count).padStart(digits.length, '0');
         digits.forEach((digit, i) => {
-            const newVal = countStr[i];
+            const newVal = countStr[i] !== undefined ? countStr[i] : '0';
             if (digit.textContent !== newVal) {
                 digit.classList.add('flip');
                 setTimeout(() => {

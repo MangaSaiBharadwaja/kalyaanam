@@ -1867,25 +1867,27 @@ body {
     margin-top: 10px;
 }
 
-.parents-label {
+.parents-label , .grand-parents-label {
     font-family: var(--font-body);
     color: var(--gold-dark);
+    font-weight: 900;
     font-size: 0.95rem;
     font-style: italic;
     margin-bottom: 8px;
 }
 
-.parent-name {
+.parent-name, .grand-parent-name {
     font-family: var(--font-body);
     color: #2c1810;
     font-size: 1.1rem;
-    font-weight: 600;
+    font-weight: 800;
     line-height: 1.4;
 }
 
-.parent-connector {
+.parent-connector, .grand-parent-connector {
     color: var(--gold);
     font-size: 1.2rem;
+    font-weight: 800;
     margin: 3px 0;
 }
 
