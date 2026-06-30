@@ -200,7 +200,6 @@ const translations = {
         bride_father: "డాక్టర్ సోలా సుశ్రుత్ కుమార్",
         bride_mother: "శ్రీమతి సోలా శ్రీదేవి",
         bride_name: 'సోలా నవ్య శ్రీ లలిత',
-        daughter_of: 'కూతురు',
         details_title: 'వివాహ వివరాలు',
         details_subtitle: 'శుభ ముహూర్తం గుర్తుంచుకోండి',
         detail_date_title: 'వివాహ తేదీ',
