@@ -103,14 +103,14 @@ const translations = {
         daughter_of: "Daughter of",
 
         groom_father: "Sri Panganaamala Venkata Sarath Kumar",
-        groom_mother: "Smt. Panganaamala Swarna Lakshmi",
+        groom_mother: "Smt. Swarna Lakshmi",
         groom_grandfather: "Sri Panganaamala Yamana Rao",
-        groom_grandmother: "Smt. Panganaamala Nagamani",
+        groom_grandmother: "Smt. Nagamani",
 
         bride_father: "Dr. Sola Sushruth Kumar",
-        bride_mother: "Smt. Sola SriDevi",
+        bride_mother: "Smt. SriDevi",
         bride_grandfather: "Sri Sola Sreehari",
-        bride_grandmother: "Smt. Sola Ramadevi",
+        bride_grandmother: "Smt. Ramadevi",
         gotra_subheading: "Ancestral Heritage",
         uncle_aunt: "Uncle & Aunt",
         younger_brother: "Brother",
@@ -181,10 +181,10 @@ const translations = {
         groom_name: "పంగనామల వెంకట అభిలాష్ కుమార్",
         bride_name: "సోలా నవ్య శ్రీ లలిత",
         groom_grandfather: "శ్రీ పంగనామల యమానారావు",
-        groom_grandmother: "శ్రీమతి పంగనామల నాగమణి",
+        groom_grandmother: "శ్రీమతి నాగమణి",
 
         bride_grandfather: "శ్రీ సోలా శ్రీహరి",
-        bride_grandmother: "శ్రీమతి సోలా రమాదేవి",
+        bride_grandmother: "శ్రీమతి రమాదేవి",
         uncle_aunt: "బాబాయి & పిన్ని",
 
         groom_uncle: "శ్రీ పంగనామాల కిషోర్ కుమార్",
@@ -195,10 +195,10 @@ const translations = {
         daughter_of: "తల్లిదండ్రులు",
 
         groom_father: "శ్రీ పంగనామల వెంకట శరత్ కుమార్",
-        groom_mother: "శ్రీమతి పంగనామల స్వర్ణ లక్ష్మి",
+        groom_mother: "శ్రీమతి స్వర్ణ లక్ష్మి",
 
         bride_father: "డాక్టర్ సోలా సుశ్రుత్ కుమార్",
-        bride_mother: "శ్రీమతి సోలా శ్రీదేవి",
+        bride_mother: "శ్రీమతి శ్రీదేవి",
         bride_name: 'సోలా నవ్య శ్రీ లలిత',
         details_title: 'వివాహ వివరాలు',
         details_subtitle: 'శుభ ముహూర్తం గుర్తుంచుకోండి',
@@ -258,12 +258,12 @@ const translations = {
         brother_wife: "సోదరుడు & వదిన",
 
         groom_grandfather: "శ్రీ పంగనామల యమానారావు",
-        groom_grandmother: "శ్రీమతి పంగనామల నాగమణి",
+        groom_grandmother: "శ్రీమతి నాగమణి",
 
         groom_sister: "చి. రాజేశ్వరి మేధిని",        
 
         bride_grandfather: "శ్రీ సోలా శ్రీహరి",
-        bride_grandmother: "శ్రీమతి సోలా రమాదేవి",
+        bride_grandmother: "శ్రీమతి రమాదేవి",
 
         bride_brother: "శ్రీ సోలా గణేష్",
         bride_sister_in_law: "శ్రీమతి సోలా శివాని",
@@ -336,7 +336,7 @@ const translations = {
         uncle_aunt: "पितृव्यः तथा पितृव्यपत्नी",
 
         groom_uncle: "श्री पङ्गनामाल किशोरकुमारः",
-        groom_aunt: "श्रीमती पङ्गनामाल श्रावणीकुमारी",
+        groom_aunt: "श्रीमती श्रावणीकुमारी",
 
         groom_father: "श्री वेङ्कट शरथकुमारः",
         groom_mother: "श्रीमती स्वर्णलक्ष्मी",
