@@ -206,7 +206,7 @@ const translations = {
         detail_date_text: 'ఆగష్టు 16, 2026',
         detail_date_sub: 'ఆదివారం రాత్రి',
         detail_time_title: 'ముహూర్తం సమయం',
-        detail_time_text: 'రాత్రి 11:30 – తెల్లవారితే 1:15',
+        detail_time_text: 'రాత్రి 11:30 – 1:15',
         detail_time_sub: 'హస్తా నక్షత్రం · పుష్కర కాలం 12:21 – 12:25',
         detail_venue_title: 'వేదిక',
         detail_venue_text: 'నేదురుమల్లి సుబ్బిరామి రెడ్డి కళా భవన్ (NBKR) కళ్యాణ మండపం',
@@ -238,7 +238,7 @@ const translations = {
         universal_blessing: "॥ సర్వే జనాః సుఖినో భవంతు ॥",
 
         sumuhurtam_text: 'పరాభవ నామ సంవత్సరం, శ్రావణ మాసం, శుద్ధ పంచమి',
-        sumuhurtam_time: 'రాత్రి 11:30 – తెల్లవారితే 1:15',
+        sumuhurtam_time: 'రాత్రి 11:30 – 1:15',
         sumuhurtam_nakshatra: 'హస్తా నక్షత్రం • వృషభ లగ్నం • పుష్కర కాలం 12:21 – 12:25',
         rsvp_title: "ఆహ్వానం",
 
