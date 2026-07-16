@@ -180,7 +180,7 @@ const translations = {
 
         groom_name: "పంగనామల వెంకట అభిలాష్ కుమార్",
         bride_name: "సోలా నవ్య శ్రీ లలిత",
-        groom_grandfather: "శ్రీ పంగనామల యమానారావు",
+        groom_grandfather: "శ్రీ పంగనామల యామనరావు",
         groom_grandmother: "శ్రీమతి నాగమణి",
 
         bride_grandfather: "శ్రీ సోలా శ్రీహరి",
@@ -257,7 +257,7 @@ const translations = {
         sister: "సోదరి",
         brother_wife: "సోదరుడు & వదిన",
 
-        groom_grandfather: "శ్రీ పంగనామల యమానారావు",
+        groom_grandfather: "శ్రీ పంగనామల యామనరావు",
         groom_grandmother: "శ్రీమతి నాగమణి",
 
         groom_sister: "చి. రాజేశ్వరి మేధిని",        
